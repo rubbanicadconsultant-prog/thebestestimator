@@ -3,7 +3,7 @@ import json
 import base64
 import requests
 from pathlib import Path
-from flask import Flask, render_template, request, jsonify, Response, url_for
+from flask import Flask, render_template, request, jsonify, Response, url_for, redirect
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -63,6 +63,19 @@ def load_services():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         app.logger.error("Unable to load services.json: %s", e)
         return []
+
+@app.before_request
+def redirect_trailing_slash():
+    # The previous WordPress site used trailing-slash URLs (e.g. /about/)
+    # as its default permalink structure. Our routes don't have trailing
+    # slashes, so Flask returns a plain 404 for the old indexed URLs
+    # instead of connecting them to the real page — meaning any ranking
+    # signal those old URLs had gets thrown away rather than transferred.
+    # This 301-redirects any trailing-slash URL to its real counterpart,
+    # so Google (and anyone with an old bookmark/link) lands on the
+    # correct page and the redirect properly consolidates SEO value.
+    if request.path != '/' and request.path.endswith('/'):
+        return redirect(request.path.rstrip('/'), code=301)
 
 @app.context_processor
 def inject_nav_services():
@@ -125,7 +138,7 @@ def about():
     closer = {
         'name': 'Waleed Qureshi',
         'title': 'Senior Closer',
-        'photo': 'images/team/jordan.webp',
+        'photo': 'images/team/jordan2.webp',
         'bio': (
             'Waleed works closely with clients as a Senior Closer, helping them understand how our  '
             'estimating services can fit their project needs. He’s often one of the first'
@@ -133,7 +146,43 @@ def about():
             'and straightforward.'
         ),
     }
-    return render_template('about.html', ceo=ceo, closer=closer)
+
+    # Team section (3rd section) — placeholder identities until real names/
+    # titles/bios are provided. Each entry's photo path is pre-set to where
+    # the real file should eventually live; if that file doesn't exist yet,
+    # the template shows a clean "Photo Coming Soon" placeholder instead of
+    # a broken image. The moment a correctly-named file is saved to that
+    # path, it starts rendering automatically — no code changes needed.
+    team_raw = [
+        {
+            'name': 'Areeba',
+            'title': 'Team Leader',
+            'photo_path': 'images/team/team-1.webp',
+            'bio': '------',
+        },
+        {
+            'name': 'Abdullah Fazal',
+            'title': 'IT Specialist',
+            'photo_path': 'images/team/team-2.webp',
+            'bio': '------',
+        },
+        {
+            'name': 'Hizbullah',
+            'title': 'Sales Representative',
+            'photo_path': 'images/team/Hizbullah.webp',
+            'bio': '------',
+        },
+    ]
+    team = []
+    for member in team_raw:
+        photo_exists = (BASE_DIR / 'static' / member['photo_path']).exists()
+        team.append({
+            'name': member['name'],
+            'title': member['title'],
+            'bio': member['bio'],
+            'photo': member['photo_path'] if photo_exists else None,
+        })
+    return render_template('about.html', ceo=ceo, closer=closer, team=team)
 
 @app.route('/pricing')
 def pricing():

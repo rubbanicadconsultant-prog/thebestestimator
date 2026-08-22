@@ -4,6 +4,15 @@
    page's styles — every selector below is scoped to classes
    that only exist on templates/about.html.
    ========================================================== */
+.eyebrow-aboutus{
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    display: block;
+    margin-bottom: 1rem;
+}
 
 .about-hero-wrap {
     position: relative;
@@ -132,18 +141,125 @@
     color: rgba(255, 255, 255, 0.92);
 }
 
-/* Placeholder section below the hero — exists only so the
-   fade-on-scroll effect has something to scroll toward.
-   Replace its content when the next section is designed. */
-.about-next-placeholder {
-    background-color: var(--color-surface);
-    padding: 8rem 0;
+/* ==========================================================
+   ABOUT — Team section (third section)
+   Three members in one horizontal row: one wide card with a
+   landscape photo, two narrower cards with portrait photos.
+   Same dark navy/grey gradient as the CEO hero, so this reads
+   as a continuation of that visual language rather than the
+   lighter contrast beat used for the Waleed spotlight above it.
+   ========================================================== */
+
+.about-team {
+    position: relative;
+    padding: 6rem 0;
+    background-color: var(--color-primary); /* Solid Oxford Blue */
 }
 
-.about-next-placeholder-text {
+.about-team::before {
+    display: none; /* Removed the complex gradient background */
+}
+
+
+
+.about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3-column uniform grid */
+    gap: 2.5rem;
+}
+
+.about-team-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.about-team-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.about-team-photo-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Uniform square frames */
+    background-color: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.about-team-photo-img,
+.about-team-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .about-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .about-team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-align: center;
-    color: var(--color-text-muted);
-    font-style: italic;
+    padding: 1rem;
+}
+
+.about-team-photo-placeholder i {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.about-team-card-body {
+    padding: 1.75rem 2rem 2rem;
+}
+
+.about-team-name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.about-team-title-role {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 1rem;
+}
+
+.about-team-bio {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 768px) {
+    .about-team-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-team-card-wide .about-team-photo-frame {
+        aspect-ratio: 4 / 3;
+    }
 }
 
 /* ==========================================================

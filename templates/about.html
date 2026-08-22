@@ -1,8 +1,6 @@
 {% extends "base.html" %}
-
 {% block title %}About{% endblock %}
 {% block meta_description %}Meet the leadership behind The Best Estimator LLC — the team delivering fast, accurate construction cost estimating and takeoff services nationwide.{% endblock %}
-
 {% block content %}
 <!-- ==========================================================
      ABOUT — Leadership hero
@@ -16,20 +14,17 @@
 <section class="about-hero-wrap">
     <div class="about-hero" id="about-hero">
         <div class="about-hero-bg" aria-hidden="true"></div>
-
         <div class="about-hero-inner container">
             <div class="about-hero-copy">
                 <span class="eyebrow">LEADERSHIP</span>
                 <h1 class="about-hero-name">{{ ceo.name }}</h1>
                 <p class="about-hero-title-role">{{ ceo.title }}</p>
-
                 <div class="about-hero-bio">
                     {% for paragraph in ceo.bio_paragraphs %}
                     <p>{{ paragraph }}</p>
                     {% endfor %}
                 </div>
             </div>
-
             <div class="about-hero-photo">
                 <img
                     src="{{ url_for('static', filename=ceo.photo) }}"
@@ -40,7 +35,6 @@
         </div>
     </div>
 </section>
-
 <!-- ==========================================================
      ABOUT — Second spotlight (Senior Sales Closer)
      Rises into view as the CEO hero above pins and fades out
@@ -64,11 +58,45 @@
         <p class="about-spotlight-bio">{{ closer.bio }}</p>
     </div>
 </section>
+<!-- ==========================================================
+     ABOUT — Team section (third section)
+     Three members, one horizontal row: a wide landscape-photo
+     card for the first, two portrait-photo cards side by side
+     for the other two. Photo placeholders show until real
+     photos are dropped into the paths referenced by team.photo
+     in main.py — no code changes needed once photos are ready.
+     ========================================================== -->
+<section class="about-team">
+    <div class="container about-team-inner">
+        <div class="about-team-header">
+            <span class="eyebrow-aboutus">MEET OUR UPFRONT PEOPLE</span>
+        </div>
 
-<!-- Placeholder — team row (GM + others) still to come. -->
-<section class="about-next-placeholder">
-    <div class="container">
-        <p class="about-next-placeholder-text">More coming here — General Manager and the rest of the team.</p>
+        <div class="about-team-grid">
+            {% for member in team %}
+            <div class="about-team-card">
+                <div class="about-team-photo-frame">
+                    {% if member.photo %}
+                    <img
+                        src="{{ url_for('static', filename=member.photo) }}"
+                        alt="{{ member.name }}, {{ member.title }} at The Best Estimator LLC"
+                        class="about-team-photo-img"
+                    >
+                    {% else %}
+                    <div class="about-team-photo-placeholder">
+                        <i class="fas fa-user"></i>
+                        <span>Photo Coming Soon</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="about-team-card-body">
+                    <h3 class="about-team-name">{{ member.name }}</h3>
+                    <p class="about-team-title-role">{{ member.title }}</p>
+                    <p class="about-team-bio">{{ member.bio }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock %}
