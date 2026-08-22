@@ -41,13 +41,34 @@
     </div>
 </section>
 
-<!-- Placeholder — next section (General Manager, values, etc.)
-     to be built next. This exists now only so the fade-on-scroll
-     behavior above has something to scroll toward and can be
-     tested; replace its contents when ready. -->
+<!-- ==========================================================
+     ABOUT — Second spotlight (Senior Sales Closer)
+     Rises into view as the CEO hero above pins and fades out
+     (see static/js/main.js #7). Deliberately a calmer, lighter
+     composition than the CEO section — centered solo portrait
+     on a light background, not a dark split-screen — so it
+     reads as a distinct beat, not a repeat of the same pattern.
+     ========================================================== -->
+<section class="about-spotlight">
+    <div class="container about-spotlight-inner">
+        <span class="eyebrow">MEET THE TEAM</span>
+        <div class="about-spotlight-photo-frame">
+            <img
+                src="{{ url_for('static', filename=closer.photo) }}"
+                alt="{{ closer.name }}, {{ closer.title }} at The Best Estimator LLC"
+                class="about-spotlight-photo-img"
+            >
+        </div>
+        <h2 class="about-spotlight-name">{{ closer.name }}</h2>
+        <p class="about-spotlight-title-role">{{ closer.title }}</p>
+        <p class="about-spotlight-bio">{{ closer.bio }}</p>
+    </div>
+</section>
+
+<!-- Placeholder — team row (GM + others) still to come. -->
 <section class="about-next-placeholder">
     <div class="container">
-        <p class="about-next-placeholder-text">More coming here — General Manager, company values, and team.</p>
+        <p class="about-next-placeholder-text">More coming here — General Manager and the rest of the team.</p>
     </div>
 </section>
 {% endblock %}

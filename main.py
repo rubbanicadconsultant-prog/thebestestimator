@@ -122,7 +122,18 @@ def about():
                'picture of their costs before the work begins.'
            ]
        }
-    return render_template('about.html', ceo=ceo)
+    closer = {
+        'name': 'Waleed Qureshi',
+        'title': 'Senior Closer',
+        'photo': 'images/team/jordan.webp',
+        'bio': (
+            'Waleed works closely with clients as a Senior Closer, helping them understand how our  '
+            'estimating services can fit their project needs. He’s often one of the first'
+            'people clients speak with and focuses on making that first conversation clear, helpful, '
+            'and straightforward.'
+        ),
+    }
+    return render_template('about.html', ceo=ceo, closer=closer)
 
 @app.route('/pricing')
 def pricing():
