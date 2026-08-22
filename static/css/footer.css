@@ -297,3 +297,44 @@
         padding: 2.25rem 1.5rem;
     }
 }
+/* ==========================================
+   MOBILE FOOTER — HORIZONTAL NAVIGATION
+   ========================================== */
+@media (max-width: 576px) {
+
+    /* Keep navigation links on horizontal rows */
+    .footer-grid > .footer-links-col:not(.contact-col) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 1.25rem;
+        row-gap: 0.65rem;
+    }
+
+    /* Navigation heading gets its own full row */
+    .footer-grid > .footer-links-col:not(.contact-col) h4 {
+        width: 100%;
+        margin: 0 0 0.35rem;
+    }
+
+    /* Remove the <br> after "Navigation" */
+    .footer-grid > .footer-links-col:not(.contact-col) br {
+        display: none;
+    }
+
+    /* Make navigation links compact horizontal items */
+    .footer-grid > .footer-links-col:not(.contact-col) a {
+        display: inline-flex;
+        align-items: center;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    /* Keep the hover arrow from affecting the layout */
+    .footer-grid > .footer-links-col:not(.contact-col) .link-arrow {
+        margin-left: 5px;
+    }
+
+}

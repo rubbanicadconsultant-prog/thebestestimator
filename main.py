@@ -157,8 +157,8 @@ def about():
         {
             'name': 'Areeba',
             'title': 'Team Leader',
-            'photo_path': 'images/team/team-1.webp',
-            'bio': '------',
+            'photo_path': 'images/team/kylie.webp',
+            'bio': 'Leading our team with a focus on precision, innovation, and delivering reliable engineering solutions that meet every project’s needs.',
         },
         {
             'name': 'Abdullah Fazal',
@@ -170,7 +170,7 @@ def about():
             'name': 'Hizbullah',
             'title': 'Sales Representative',
             'photo_path': 'images/team/Hizbullah.webp',
-            'bio': '------',
+            'bio': 'Building strong client relationships and connecting our engineering solutions with the right opportunities to drive lasting business growth.',
         },
     ]
     team = []
