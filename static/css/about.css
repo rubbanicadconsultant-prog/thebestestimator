@@ -140,7 +140,432 @@
     line-height: 1.75;
     color: rgba(255, 255, 255, 0.92);
 }
+/* ==========================================================
+   ABOUT — WHY CHOOSE US
+   NEW SECTION ONLY
+   ========================================================== */
 
+.about-why-choose {
+    position: relative;
+    overflow: hidden;
+    background: #F7F9FC;
+    padding: 5rem 0 4.75rem;
+    border-top: 1px solid rgba(15, 35, 60, 0.06);
+}
+
+.about-why-grid-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+        rgba(15, 35, 60, 0.03) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(15, 35, 60, 0.03) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    opacity: 0.7;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+    );
+}
+
+.about-why-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+}
+
+.about-why-header {
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+}
+
+.about-why-eyebrow {
+    display: block;
+    margin-bottom: 0.8rem;
+
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+
+    color: var(--color-accent);
+    text-transform: uppercase;
+}
+
+.about-why-header h2 {
+    margin: 0 0 1rem;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+
+    color: var(--color-primary);
+}
+
+.about-why-header p {
+    max-width: 680px;
+    margin: 0;
+
+    font-size: 0.98rem;
+    line-height: 1.7;
+
+    color: #374151;
+}
+
+
+/* ==========================================================
+   PROOF STATS
+   ========================================================== */
+
+.about-why-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid rgba(15, 35, 60, 0.10);
+    border-bottom: 1px solid rgba(15, 35, 60, 0.10);
+}
+
+.about-why-stat {
+    min-height: 108px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 1.3rem 2rem;
+}
+
+.about-why-stat + .about-why-stat {
+    border-left: 1px solid rgba(15, 35, 60, 0.10);
+}
+
+.about-why-stat strong {
+    display: block;
+
+    margin-bottom: 0.35rem;
+
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1;
+
+    letter-spacing: -0.035em;
+
+    color: var(--color-primary);
+}
+
+.about-why-stat:nth-child(3) strong {
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+}
+
+.about-why-stat span {
+    display: block;
+
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+
+    color: rgba(15, 35, 60, 0.62);
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   REASONS
+   ========================================================== */
+
+.about-why-reasons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    border-bottom: 1px solid rgba(15, 35, 60, 0.10);
+}
+
+.about-why-reason {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.85rem;
+
+    min-width: 0;
+
+    padding: 1.65rem 1.5rem 1.75rem 0;
+}
+
+.about-why-reason + .about-why-reason {
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(15, 35, 60, 0.10);
+}
+
+.about-why-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    border: 1px solid rgba(15, 35, 60, 0.14);
+
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+
+    color: var(--color-accent);
+}
+
+.about-why-reason h3 {
+    margin: 0 0 0.4rem;
+
+    font-family: var(--font-heading);
+    font-size: 0.94rem;
+    font-weight: 800;
+    line-height: 1.2;
+
+    color: var(--color-primary);
+}
+
+.about-why-reason p {
+    margin: 0;
+
+    font-size: 0.82rem;
+    line-height: 1.55;
+
+    color: #374151;
+}
+
+
+/* ==========================================================
+   CTA
+   ========================================================== */
+
+.about-why-cta {
+    display: flex;
+    justify-content: flex-end;
+
+    padding-top: 1.5rem;
+}
+
+.about-why-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+
+    padding: 0.8rem 1.2rem;
+
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease;
+}
+
+.about-why-cta-button i {
+    font-size: 0.65rem;
+
+    transition: transform 180ms ease;
+}
+
+.about-why-cta-button:hover {
+    transform: translateY(-2px);
+
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.about-why-cta-button:hover i {
+    transform: translateX(3px);
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 992px) {
+
+    .about-why-choose {
+        padding: 4.5rem 0 4.25rem;
+    }
+
+    .about-why-reasons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-why-reason:nth-child(3),
+    .about-why-reason:nth-child(4) {
+        border-top: 1px solid rgba(15, 35, 60, 0.10);
+    }
+
+    .about-why-reason:nth-child(3) {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .about-why-reason:nth-child(4) {
+        padding-left: 1.5rem;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    .about-why-choose {
+        padding: 4rem 0;
+    }
+
+    .about-why-header {
+        margin-bottom: 2rem;
+    }
+
+    .about-why-header h2 {
+        font-size: clamp(1.9rem, 8vw, 2.35rem);
+        line-height: 1.08;
+    }
+
+    .about-why-header h2 span {
+        display: block;
+    }
+
+    .about-why-header p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+
+
+    /* Proof stats: 2 + 1 */
+
+    .about-why-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-why-stat {
+        min-height: 92px;
+        padding: 1.05rem 1rem;
+    }
+
+    .about-why-stat:nth-child(2) {
+        border-left: 1px solid rgba(15, 35, 60, 0.10);
+    }
+
+    .about-why-stat:nth-child(3) {
+        grid-column: 1 / -1;
+
+        border-top: 1px solid rgba(15, 35, 60, 0.10);
+        border-left: none;
+    }
+
+    .about-why-stat strong {
+        font-size: 1.6rem;
+    }
+
+    .about-why-stat:nth-child(3) strong {
+        font-size: 1.4rem;
+    }
+
+    .about-why-stat span {
+        font-size: 0.6rem;
+    }
+
+
+    /* Reasons: 2 x 2 */
+
+    .about-why-reasons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-why-reason {
+        display: block;
+        min-height: 140px;
+
+        padding: 1.2rem 1rem 1.2rem 0;
+    }
+
+    .about-why-reason + .about-why-reason {
+        padding-left: 1rem;
+    }
+
+    .about-why-reason:nth-child(2) {
+        border-left: 1px solid rgba(15, 35, 60, 0.10);
+    }
+
+    .about-why-reason:nth-child(3) {
+        border-top: 1px solid rgba(15, 35, 60, 0.10);
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .about-why-reason:nth-child(4) {
+        border-top: 1px solid rgba(15, 35, 60, 0.10);
+        border-left: 1px solid rgba(15, 35, 60, 0.10);
+    }
+
+    .about-why-number {
+        margin-bottom: 0.75rem;
+    }
+
+    .about-why-reason h3 {
+        font-size: 0.86rem;
+    }
+
+    .about-why-reason p {
+        font-size: 0.76rem;
+        line-height: 1.5;
+    }
+
+
+    /* CTA */
+
+    .about-why-cta {
+        justify-content: flex-start;
+        padding-top: 1.35rem;
+    }
+
+    .about-why-cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
 /* ==========================================================
    ABOUT — Team section (third section)
    Three members in one horizontal row: one wide card with a

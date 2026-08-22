@@ -1,30 +1,39 @@
 {% extends "base.html" %}
 {% block title %}About{% endblock %}
 {% block meta_description %}Meet the leadership behind The Best Estimator LLC — the team delivering fast, accurate construction cost estimating and takeoff services nationwide.{% endblock %}
+
 {% block content %}
+
 <!-- ==========================================================
      ABOUT — Leadership hero
      Sticky-pinned while the user scrolls through the extra
      scroll room in .about-hero-wrap, then fades via GSAP
-     ScrollTrigger (scrub-linked, desktop only) as the next
-     section approaches. On mobile the pin/fade is disabled —
-     see static/js/main.js — and this just sits as a normal
-     static section.
+     ScrollTrigger on desktop. On mobile it behaves normally.
      ========================================================== -->
 <section class="about-hero-wrap">
     <div class="about-hero" id="about-hero">
         <div class="about-hero-bg" aria-hidden="true"></div>
+
         <div class="about-hero-inner container">
+
             <div class="about-hero-copy">
                 <span class="eyebrow">LEADERSHIP</span>
-                <h1 class="about-hero-name">{{ ceo.name }}</h1>
-                <p class="about-hero-title-role">{{ ceo.title }}</p>
+
+                <h1 class="about-hero-name">
+                    {{ ceo.name }}
+                </h1>
+
+                <p class="about-hero-title-role">
+                    {{ ceo.title }}
+                </p>
+
                 <div class="about-hero-bio">
                     {% for paragraph in ceo.bio_paragraphs %}
                     <p>{{ paragraph }}</p>
                     {% endfor %}
                 </div>
             </div>
+
             <div class="about-hero-photo">
                 <img
                     src="{{ url_for('static', filename=ceo.photo) }}"
@@ -32,20 +41,20 @@
                     class="about-hero-photo-img"
                 >
             </div>
+
         </div>
     </div>
 </section>
+
+
 <!-- ==========================================================
      ABOUT — Second spotlight (Senior Sales Closer)
-     Rises into view as the CEO hero above pins and fades out
-     (see static/js/main.js #7). Deliberately a calmer, lighter
-     composition than the CEO section — centered solo portrait
-     on a light background, not a dark split-screen — so it
-     reads as a distinct beat, not a repeat of the same pattern.
      ========================================================== -->
 <section class="about-spotlight">
     <div class="container about-spotlight-inner">
+
         <span class="eyebrow">MEET THE TEAM</span>
+
         <div class="about-spotlight-photo-frame">
             <img
                 src="{{ url_for('static', filename=closer.photo) }}"
@@ -53,50 +62,211 @@
                 class="about-spotlight-photo-img"
             >
         </div>
-        <h2 class="about-spotlight-name">{{ closer.name }}</h2>
-        <p class="about-spotlight-title-role">{{ closer.title }}</p>
-        <p class="about-spotlight-bio">{{ closer.bio }}</p>
+
+        <h2 class="about-spotlight-name">
+            {{ closer.name }}
+        </h2>
+
+        <p class="about-spotlight-title-role">
+            {{ closer.title }}
+        </p>
+
+        <p class="about-spotlight-bio">
+            {{ closer.bio }}
+        </p>
+
     </div>
 </section>
+
+
 <!-- ==========================================================
-     ABOUT — Team section (third section)
-     Three members, one horizontal row: a wide landscape-photo
-     card for the first, two portrait-photo cards side by side
-     for the other two. Photo placeholders show until real
-     photos are dropped into the paths referenced by team.photo
-     in main.py — no code changes needed once photos are ready.
+     ABOUT — Why Choose Us
+     Compact proof strip
      ========================================================== -->
-<section class="about-team">
-    <div class="container about-team-inner">
-        <div class="about-team-header">
-            <span class="eyebrow-aboutus">MEET OUR UPFRONT PEOPLE</span>
+<section class="about-why-choose">
+
+    <!-- Very subtle technical / blueprint grid -->
+    <div class="about-why-grid-bg" aria-hidden="true"></div>
+
+    <div class="container about-why-inner">
+
+        <!-- Heading -->
+        <div class="about-why-header scroll-reveal">
+
+            <span class="about-why-eyebrow">
+                WHY CHOOSE US
+            </span>
+
+            <h2>
+                Built on experience.
+                <span>Focused on the details.</span>
+            </h2>
+
+            <p>
+                Since 2022, we've completed 2,850+ projects across a wide
+                range of construction scopes, with a straightforward focus
+                on accurate, organized and practical deliverables.
+            </p>
+
         </div>
 
+
+        <!-- Proof statistics -->
+        <div class="about-why-stats">
+
+            <div class="about-why-stat scroll-reveal">
+                <strong>2,850+</strong>
+                <span>PROJECTS COMPLETED</span>
+            </div>
+
+            <div class="about-why-stat scroll-reveal">
+                <strong>2022</strong>
+                <span>OPERATING SINCE</span>
+            </div>
+
+            <div class="about-why-stat scroll-reveal">
+                <strong>MULTI-TRADE</strong>
+                <span>ESTIMATING CAPABILITY</span>
+            </div>
+
+        </div>
+
+
+        <!-- Reasons -->
+        <div class="about-why-reasons">
+
+            <article class="about-why-reason scroll-reveal">
+                <span class="about-why-number">01</span>
+
+                <div>
+                    <h3>Detail-Focused</h3>
+                    <p>
+                        Careful review of drawings, quantities and revisions.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="about-why-reason scroll-reveal">
+                <span class="about-why-number">02</span>
+
+                <div>
+                    <h3>Multi-Trade Experience</h3>
+                    <p>
+                        Estimating support across diverse construction scopes.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="about-why-reason scroll-reveal">
+                <span class="about-why-number">03</span>
+
+                <div>
+                    <h3>Organized Deliverables</h3>
+                    <p>
+                        Clear takeoffs and estimates structured for practical use.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="about-why-reason scroll-reveal">
+                <span class="about-why-number">04</span>
+
+                <div>
+                    <h3>Built Around Your Workflow</h3>
+                    <p>
+                        Work prepared to fit how contractors and construction
+                        teams operate.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+
+        <!-- CTA -->
+        <div class="about-why-cta scroll-reveal">
+            <a
+                href="{{ url_for('contact') }}"
+                class="about-why-cta-button"
+            >
+                REQUEST A QUOTE
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ==========================================================
+     ABOUT — Team section
+     ========================================================== -->
+<section class="about-team">
+
+    <div class="container about-team-inner">
+
+        <div class="about-team-header">
+            <span class="eyebrow-aboutus">
+                MEET OUR UPFRONT PEOPLE
+            </span>
+        </div>
+
+
         <div class="about-team-grid">
+
             {% for member in team %}
+
             <div class="about-team-card">
+
                 <div class="about-team-photo-frame">
+
                     {% if member.photo %}
+
                     <img
                         src="{{ url_for('static', filename=member.photo) }}"
                         alt="{{ member.name }}, {{ member.title }} at The Best Estimator LLC"
                         class="about-team-photo-img"
                     >
+
                     {% else %}
+
                     <div class="about-team-photo-placeholder">
                         <i class="fas fa-user"></i>
                         <span>Photo Coming Soon</span>
                     </div>
+
                     {% endif %}
+
                 </div>
+
+
                 <div class="about-team-card-body">
-                    <h3 class="about-team-name">{{ member.name }}</h3>
-                    <p class="about-team-title-role">{{ member.title }}</p>
-                    <p class="about-team-bio">{{ member.bio }}</p>
+
+                    <h3 class="about-team-name">
+                        {{ member.name }}
+                    </h3>
+
+                    <p class="about-team-title-role">
+                        {{ member.title }}
+                    </p>
+
+                    <p class="about-team-bio">
+                        {{ member.bio }}
+                    </p>
+
                 </div>
+
             </div>
+
             {% endfor %}
+
         </div>
+
     </div>
+
 </section>
+
 {% endblock %}
