@@ -578,7 +578,7 @@
 .about-team {
     position: relative;
     padding: 6rem 0;
-    background-color: var(--color-primary); /* Solid Oxford Blue */
+    background:var(--color-primary)
 }
 
 .about-team::before {

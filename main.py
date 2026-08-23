@@ -321,7 +321,7 @@ def submit_quote():
         print(f"Email send failed: {e}")
         return jsonify({
             "status": "error",
-            "message": "We couldn't send your request right now. Please try again, or email us directly."
+            "message": "We couldn't send your request right now. Please try again, or email us directly if your file is bigger than 50MB."
         }), 502
 
 if __name__ == '__main__':

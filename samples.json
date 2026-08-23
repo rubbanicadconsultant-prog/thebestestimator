@@ -108,5 +108,35 @@
     "file_url": "/static/samples/electric-sample.pdf",
     "file_type": "pdf",
     "image": "/static/images/samples/electrical.webp"
-  }
+  },
+{
+  "id": "Plan Drafting",
+  "trade": "Architectural Work",
+  "division": "01",
+  "title": "Pre-Bid Drawings",
+  "description": "Converted raw concepts into detail visuals of project.",
+  "file_url": "/static/samples/electric-sample.pdf",
+  "file_type": "pdf",
+  "image": "/static/images/samples/electrical.webp"
+},
+{
+  "id": "Shop Drawings",
+  "trade": "Architectural Work",
+  "division": "01",
+  "title": "3D Coordination",
+  "description": "Fabrication ready shop drawings.",
+  "file_url": "/static/samples/electric-sample.pdf",
+  "file_type": "pdf",
+  "image": "/static/images/samples/electrical.webp"
+},
+{
+  "id": "Timeline",
+  "trade": "After Bid",
+  "division": "03",
+  "title": "Plan scheduling",
+  "description": "Helping Contractors to draft the timeline of project.",
+  "file_url": "/static/samples/electric-sample.pdf",
+  "file_type": "pdf",
+  "image": "/static/images/samples/electrical.webp"
+}
 ]

@@ -191,7 +191,7 @@
       "Revision-tracked documentation"
     ],
     "typical_applications": "Design-build projects, shop drawing submittals, as-built record sets, BIM coordination for multi-trade projects.",
-    "sample_trade_match": "Construction Management",
+    "sample_trade_match": "Architectural Work",
     "is_hub": true,
     "sub_services": [
       {
@@ -216,7 +216,7 @@
           "Layered CAD files ready for your workflow"
         ],
         "typical_applications": "Design-build projects, permit sets, as-built record sets, plan revisions ahead of bidding.",
-        "sample_trade_match": "Construction Management"
+        "sample_trade_match": "Architectural Work"
       },
       {
         "id": "shop-drawings",
@@ -240,10 +240,10 @@
           "Clash detection reports"
         ],
         "typical_applications": "Shop drawing submittals, multi-trade BIM coordination, fabrication packages for structural and MEP trades.",
-        "sample_trade_match": "Construction Management"
+        "sample_trade_match": "Architectural Work"
       },
       {
-        "id": "scheduling",
+        "id": "Timeline",
         "number": "03",
         "csi_division": "BIM · Scheduling",
         "name": "Scheduling",
@@ -264,7 +264,7 @@
           "Revision-tracked updates as the project evolves"
         ],
         "typical_applications": "Design-build projects, multi-phase construction, projects requiring lender or owner schedule reporting.",
-        "sample_trade_match": "Construction Management"
+        "sample_trade_match": "After Bid"
       }
     ]
   }

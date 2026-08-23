@@ -1,7 +1,7 @@
 [project]
 name = "thebestestimator"
 version = "0.1.0"
-description = "Add your description here"
+description = "A premium Version of Construction Estimation Company who help contractors to bid on more jobs by providing cost estimations & architectural services."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
