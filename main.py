@@ -140,10 +140,10 @@ def about():
         'title': 'Senior Closer',
         'photo': 'images/team/jordan2.webp',
         'bio': (
-            'Waleed works closely with clients as a Senior Closer, helping them understand how our  '
-            'estimating services can fit their project needs. He’s often one of the first'
-            'people clients speak with and focuses on making that first conversation clear, helpful, '
-            'and straightforward.'
+            'Waleed is often the first voice clients hear from at The Best Estimator LLC.   '
+            'As Senior Closer, he works directly with contractors and project owners to understand their scope'
+            'and connect them with the right estimating solution, turning an initial inquiry into a clear, '
+            'confident next step. His focus is straightforward: make the first conversation count, so clients know exactly what to expect before the numbers ever hit the page.'
         ),
     }
 
@@ -158,19 +158,19 @@ def about():
             'name': 'Areeba',
             'title': 'Team Leader',
             'photo_path': 'images/team/kylie.webp',
-            'bio': 'Leading our team with a focus on precision, innovation, and delivering reliable engineering solutions that meet every project’s needs.',
+            'bio': 'Areeba leads the team responsible for turning client requirements into accurate, well-organized estimates. She oversees day-to-day workflow and coordination across projects, working to make sure every deliverable meets the standard clients expect before it reaches their hands.'
         },
         {
             'name': 'Abdullah Fazal',
             'title': 'IT Specialist',
             'photo_path': 'images/team/team-2.webp',
-            'bio': '------',
+            'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
         },
         {
             'name': 'Hizbullah',
             'title': 'Sales Representative',
             'photo_path': 'images/team/Hizbullah.webp',
-            'bio': 'Building strong client relationships and connecting our engineering solutions with the right opportunities to drive lasting business growth.',
+            'bio': 'Hizbullah works with prospective clients to understand their project needs and match them with the right estimating services. He supports the sales process from first contact through follow-up, helping ensure client questions are answered clearly at every stage.'
         },
     ]
     team = []
