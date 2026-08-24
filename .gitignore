@@ -16,3 +16,9 @@ venv/
 # Custom Project Ignores
 uploads/*
 !uploads/.gitkeep
+
+# Windows 'downloaded from internet' metadata files — these keep getting
+# re-added whenever files are copied from a Windows machine. This line
+# only stops NEW ones from being tracked — see the one-time cleanup
+# command needed to remove already-tracked copies.
+*:Zone.Identifier
