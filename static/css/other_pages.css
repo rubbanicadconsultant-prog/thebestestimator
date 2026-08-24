@@ -52,7 +52,7 @@
 
 .page-subtitle {
     font-size: 1.15rem;
-    color: black;
+    color: var(--color-paragraph);
     max-width: 700px;
     font-family: var(--font-heading);
     margin: 0 auto;
@@ -78,7 +78,7 @@
 
 .samples-gallery-heading .section-desc {
     font-size: 1.15rem;
-    color: black;
+    color: var(--color-paragraph);
     max-width: 700px;
     font-family: var(--font-heading);
     margin: 0 auto;
@@ -232,7 +232,7 @@
 .sample-content p {
     font-size: 1rem;
     font-family: var(--font-heading);
-    color: black;
+    color: var(--color-paragraph);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;
@@ -429,7 +429,7 @@
 .capability-subtitle {
     margin-top: -3.5rem;
     margin-bottom: 3.5rem;
-    color: var(--color-accent);
+    color: var(--color-paragraph);
     font-family: var(--font-heading);
     font-size: 1.3rem;
 
@@ -572,7 +572,7 @@
 
 .svcflash-overview {
     font-size: 1rem;
-    color: black;
+    color: var(--color-paragraph);
     font-family: var(--font-heading);
     line-height: 1.7;
     margin-bottom: 1.25rem;
@@ -620,7 +620,7 @@
     padding-left: 1.25rem;
     font-size: 0.96rem;
     font-family: var(--font-heading);
-    color: black;
+    color: var(--color-paragraph);
     line-height: 1.6;
 }
 
@@ -638,7 +638,7 @@
 
 .svcflash-block p {
     font-size: 0.96rem;
-    color: black;
+    color: var(--color-paragraph);
     line-height: 1.6;
      font-family: var(--font-heading);
 }
@@ -767,7 +767,7 @@ body.has-letter-open {
 /* The open "letter" itself — detaches from grid flow entirely */
 .svcflash-card.is-letter-open {
     position: fixed;
-    background-color: #FFE79A;
+    background-color: var(--color-letteropen);
     top: 50%;
     left: 50%;
     z-index: 3000;

@@ -1193,4 +1193,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    // ==========================================
+    // 8. THEME TOGGLE (DARK MODE)
+    // Persistent state via localStorage
+    // ==========================================
+
+    const themeToggles = document.querySelectorAll(
+        "#theme-toggle, #mobile-theme-toggle"
+    );
+
+    const htmlElement = document.documentElement;
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem("theme") || "light";
+    htmlElement.setAttribute("data-theme", savedTheme);
+    updateToggleIcons(savedTheme);
+
+    themeToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const currentTheme =
+                htmlElement.getAttribute("data-theme");
+
+            const newTheme =
+                currentTheme === "light" ? "dark" : "light";
+
+            htmlElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateToggleIcons(newTheme);
+        });
+    });
+
+    function updateToggleIcons(theme) {
+        themeToggles.forEach((btn) => {
+            const icon = btn.querySelector("i");
+            if (icon) {
+                icon.className =
+                    theme === "light"
+                        ? "fas fa-moon"
+                        : "fas fa-sun";
+            }
+        });
+    }
+
 });

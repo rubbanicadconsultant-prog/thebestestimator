@@ -162,6 +162,12 @@
                         class="{% if request.path == '/about' %}active{% endif %}"
                         >About</a
                     >
+                    
+                    <!-- Theme Toggle (Desktop) -->
+                    <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
                     <a href="{{ url_for('contact') }}" class="nav-cta"
                         >Request Quote</a
                     >
@@ -180,6 +186,14 @@
                 <a href="{{ url_for('services_page') }}" class="{% if request.path == '/services' %}active{% endif %}">Services</a>
                 <a href="{{ url_for('pricing') }}" class="{% if request.path == '/pricing' %}active{% endif %}">Pricing</a>
                 <a href="{{ url_for('about') }}" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+                
+                <div class="mobile-theme-row">
+                    <span>Theme Mode</span>
+                    <button id="mobile-theme-toggle" class="nav-theme-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+
                 <a href="{{ url_for('contact') }}" class="mobile-nav-cta">Request Quote</a>
             </div>
         </header>

@@ -8,10 +8,10 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(247, 249, 252, 0.82);
+    background-color: var(--color-navbar-bg);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    border-bottom: 1px solid var(--color-navbar-border);
     transform: translateY(0);
     transition:
         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -357,9 +357,40 @@
     text-transform: uppercase;
 }
 
-/* ==========================================
-   DROPDOWN ARROW
-   ========================================== */
+/* Theme Toggle Button */
+.nav-theme-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.nav-theme-btn:hover {
+    color: var(--color-accent);
+    transform: scale(1.1);
+}
+
+.mobile-theme-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    background-color: rgba(var(--color-accent-rgb), 0.03);
+}
+
+.mobile-theme-row span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+}
+
 
 .nav-dropdown-item::after {
     content: "\f061";

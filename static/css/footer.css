@@ -1,18 +1,17 @@
 /* ==========================================
-   FOOTER (DARK CHARCOAL GREY)
+   FOOTER (OXFORD BLUE / DARK MODE READY)
    ========================================== */
 #site-footer {
     position: relative;
     overflow: hidden;
-    background-color:whitesmoke;
-    color: black;
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
     padding: 6rem 0 2.5rem;
     margin-top: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Hugo-style dome curve: a full-width arc across the ENTIRE top edge,
-   not just rounded corners. Positioned to poke above the footer box,
-   so the parent must NOT clip overflow. */
+/* Hugo-style dome curve */
 #site-footer::before {
     content: "";
     position: absolute;
@@ -22,14 +21,13 @@
     height: 12vw;
     min-height: 90px;
     max-height: 220px;
-    background-color:whitesmoke;
+    background-color: var(--color-footer-bg);
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     z-index: 0;
+    transition: background-color 0.4s ease;
 }
 
-/* Building line-illustration — rises from the bottom-right corner,
-   same technical/blueprint visual language used elsewhere on the site
-   (grid backgrounds, registration marks) rather than a photo. */
+/* Building line-illustration */
 .footer-blueprint {
     position: absolute;
     right: 0;
@@ -37,10 +35,14 @@
     width: min(32%, 380px);
     max-height: 70%;
     height: auto;
-    opacity: 0.1;
+    opacity: 0.15;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+}
+
+.footer-blueprint * {
+    stroke: var(--color-text-muted); /* Link drawing color to text variable */
 }
 
 .footer-container {
@@ -52,7 +54,7 @@
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center; /* Center content for better fit in the curve */
+    text-align: center;
 }
 
 .footer-top-cta {
@@ -63,7 +65,7 @@
     font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 500;
     font-family: var(--font-heading);
-    color: black;
+    color: var(--color-text-dark);
     margin: 0;
 }
 
@@ -72,12 +74,12 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2.5rem;
     margin-bottom: 2.5rem;
-    text-align: left; /* Keep text left-aligned inside grid columns */
+    text-align: left;
 }
 
 .footer-info h3,
 .footer-links-col h4 {
-    color: black;
+    color: var(--color-text-dark);
     font-family: var(--font-heading);
     font-weight: 500;
 }
@@ -85,7 +87,7 @@
 .footer-links-col a,
 .footer-links-col span {
     display: block;
-    color: black;
+    color: var(--color-footer-text);
     text-decoration: none;
     font-size: 0.95rem;
     margin-bottom: 0.85rem;
@@ -143,12 +145,12 @@
     font-size: 0.95rem;
     margin-bottom: 1rem;
     line-height: 1.6;
-    color: black;
+    color: var(--color-footer-text);
 }
 
 .contact-col a {
     display: inline;
-    color: black; /* Same brightness as the "Email:"/"Phone:" labels — was dimmer before */
+    color: var(--color-footer-text); /* Consistent with text */
 }
 
 .contact-col a:hover {
@@ -163,7 +165,7 @@
     align-items: center;
     gap: 1.75rem;
     font-size: 0.85rem;
-    color: black;
+    color: var(--color-footer-text);
 }
 
 .trust-badges {
@@ -183,12 +185,12 @@
 }
 
 .footer-legal-row p {
-    color: black;
+    color: var(--color-footer-text);
     margin: 0;
 }
 
 .footer-legal-row a {
-    color: black;
+    color: var(--color-footer-text);
     text-decoration: none;
     transition: var(--transition-smooth);
 }
@@ -198,7 +200,7 @@
 }
 
 .footer-legal-sep {
-    color:black;
+    color: var(--color-footer-text);
 }
 
 .badge-seal {
@@ -227,14 +229,14 @@
 }
 
 .badge-seal .badge-seal-sub {
-    color: black;
+    color: var(--color-footer-text);
     font-weight: 400;
     font-size: 0.72rem;
     text-transform: none;
 }
 
 .badge-seal:hover {
-    border-color: black;
+    border-color: var(--color-accent);
     transform: translateY(-3px);
 }
 
