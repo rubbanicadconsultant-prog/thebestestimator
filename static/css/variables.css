@@ -31,11 +31,15 @@
     --color-about-border:  rgba(15, 35, 60, 0.10);
     --color-about-why-stat: rgba(15, 35, 60, 0.62);
     --color-div-main-page: #1e4d7b;
+    --color-faq: #FFE79A;
+    --color-faq-answer:  #1e4d7b;
+    --color-faq-border: #1e4d7b ;
     /* Cool Grey for body copy */
 
     /* Footer Palette — dark charcoal grey, same family as the accent grey
        but a distinct shade so accent text/icons stay readable on it */
     --color-footer-bg: whitesmoke;
+     --color-footer-border:whitesmoke;
     --color-footer-text:#4a4e69;   /* Light grey for footer body copy */
 
     /* Global Spacing & Layout */
@@ -54,7 +58,7 @@
 --color-animation: #050505;
     --color-border: #1a2440;        /* Subtle Navy borders */
     --color-paragraph: rgba(255, 255, 255, 0.87);
-    --color-footer-bg: #050505;
+    --color-footer-bg:#0d0d0d;
     --color-footer-text: #b0b0b0;
     --color-accent: #D4AF37;
     --color-letteropen: #1B2A41;
@@ -72,6 +76,10 @@
      --color-about-why-stat: #D4AF37;
      --color-div-main-page: #1e4d7b;
      --color-navbar-border: rgba(255, 255, 255, 0.08);
+     --color-faq:  #2b6cb0;
+     --color-faq-answer: #f7f9fc;
+     --color-faq-border: #b0b0b0;
+     --color-footer-border:#b0b0b0 ;
 
     /* Adjusting primary for better dark contrast if necessary */
     --color-primary: #2b6cb0;       /* Slightly brighter blue for dark background */
