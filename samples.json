@@ -117,7 +117,7 @@
   "description": "Converted raw concepts into detail visuals of project.",
   "file_url": "/static/samples/electric-sample.pdf",
   "file_type": "pdf",
-  "image": "/static/images/samples/electrical.webp"
+  "image": "/static/images/samples/plan-drafting.webp"
 },
 {
   "id": "Shop Drawings",
@@ -127,7 +127,7 @@
   "description": "Fabrication ready shop drawings.",
   "file_url": "/static/samples/electric-sample.pdf",
   "file_type": "pdf",
-  "image": "/static/images/samples/electrical.webp"
+  "image": "/static/images/samples/shop-drawing.webp"
 },
 {
   "id": "Timeline",
@@ -137,6 +137,6 @@
   "description": "Helping Contractors to draft the timeline of project.",
   "file_url": "/static/samples/electric-sample.pdf",
   "file_type": "pdf",
-  "image": "/static/images/samples/electrical.webp"
+  "image": "/static/images/samples/timeline.webp"
 }
 ]
