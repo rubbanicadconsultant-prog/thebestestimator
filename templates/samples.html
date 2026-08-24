@@ -55,10 +55,17 @@
                     <h3>{{ sample.title }}</h3>
                     <p>{{ sample.description }}</p>
 
+                    {% if sample.file_type == 'pdf' %}
+                    <a href="{{ sample.file_url }}" target="_blank" class="sample-download-link">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Preview Sample</span>
+                    </a>
+                    {% else %}
                     <a href="{{ sample.file_url }}" download class="sample-download-link">
                         <i class="fa-solid fa-download"></i>
                         <span>Download Sample</span>
                     </a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
