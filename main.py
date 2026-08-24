@@ -136,14 +136,15 @@ def about():
            ]
        }
     closer = {
-        'name': 'Waleed Qureshi',
-        'title': 'Senior Closer',
-        'photo': 'images/team/jordan2.webp',
+        'name': 'Areeba',
+        'title': 'General Manager',
+        'photo': 'images/team/kylie_final.webp',
         'bio': (
-            'Waleed is often the first voice clients hear from at The Best Estimator LLC.   '
-            'As Senior Closer, he works directly with contractors and project owners to understand their scope'
-            'and connect them with the right estimating solution, turning an initial inquiry into a clear, '
-            'confident next step. His focus is straightforward: make the first conversation count, so clients know exactly what to expect before the numbers ever hit the page.'
+            'Areeba keeps The Best Estimator LLC running day to day as General Manager, '
+            'overseeing how every project moves from initial scope through to a finished '
+            'takeoff. She works closely with the estimating team to keep deliverables '
+            'accurate, on schedule, and consistent, so clients get the same reliable '
+            'quality whether it\'s their first project with us or their fifteenth.'
         ),
     }
 
@@ -167,10 +168,15 @@ def about():
             'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
         },
         {
-            'name': 'Areeba',
-            'title': 'Team Leader',
-            'photo_path': 'images/team/kylie.webp',
-            'bio': 'Areeba leads the team responsible for turning client requirements into accurate, well-organized estimates. She oversees day-to-day workflow and coordination across projects, working to make sure every deliverable meets the standard clients expect before it reaches their hands.'
+            'name': 'Waleed Qureshi',
+            'title': 'Senior Closer',
+            'photo_path': 'images/team/jordan.webp',
+            'bio': (
+                'Waleed is often the first voice clients hear from at The Best Estimator LLC.   '
+                'As Senior Closer, he works directly with contractors and project owners to understand their scope'
+                'and connect them with the right estimating solution, turning an initial inquiry into a clear, '
+                'confident next step.'
+            ),
         },
     ]
     team = []
