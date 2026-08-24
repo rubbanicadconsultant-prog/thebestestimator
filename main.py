@@ -155,22 +155,22 @@ def about():
     # path, it starts rendering automatically — no code changes needed.
     team_raw = [
         {
-            'name': 'Areeba',
-            'title': 'Team Leader',
-            'photo_path': 'images/team/kylie.webp',
-            'bio': 'Areeba leads the team responsible for turning client requirements into accurate, well-organized estimates. She oversees day-to-day workflow and coordination across projects, working to make sure every deliverable meets the standard clients expect before it reaches their hands.'
-        },
-        {
-            'name': 'Abdullah Fazal',
-            'title': 'IT Specialist',
-            'photo_path': 'images/team/team-2.webp',
-            'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
-        },
-        {
             'name': 'Hizbullah',
             'title': 'Sales Representative',
             'photo_path': 'images/team/Hizbullah.webp',
             'bio': 'Hizbullah works with prospective clients to understand their project needs and match them with the right estimating services. He supports the sales process from first contact through follow-up, helping ensure client questions are answered clearly at every stage.'
+        },
+        {
+            'name': 'Abdullah Fazal',
+            'title': 'IT Specialist',
+            'photo_path': 'images/team/donnie.webp',
+            'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
+        },
+        {
+            'name': 'Areeba',
+            'title': 'Team Leader',
+            'photo_path': 'images/team/kylie.webp',
+            'bio': 'Areeba leads the team responsible for turning client requirements into accurate, well-organized estimates. She oversees day-to-day workflow and coordination across projects, working to make sure every deliverable meets the standard clients expect before it reaches their hands.'
         },
     ]
     team = []
