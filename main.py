@@ -239,12 +239,34 @@ def page_not_found(e):
 
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
+    # --- Bot filtering ---
+    # 1. Honeypot: real users never see/fill this field, only bots do.
+    #    Fake a success response so bots don't learn to detect and route
+    #    around the honeypot — a hard error would teach them it exists.
+    if request.form.get('website'):
+        app.logger.info("Blocked bot submission (honeypot triggered)")
+        return jsonify({
+            "status": "success",
+            "message": "Your quote request was sent successfully."
+        })
+
     name = request.form.get('name', '').strip()
     email = request.form.get('email', '').strip()
     organization = request.form.get('org', '').strip()
     project_type = request.form.get('project_type')
     services = request.form.get('services')
-    message = request.form.get('message')
+    message = request.form.get('message', '')
+
+    # 2. Link-spam filter: every bot submission you've seen so far embeds
+    #    an <a href> or raw URL in the message — a real contractor filling
+    #    out a quote form has no reason to include hyperlinks.
+    combined_text = f"{name} {organization} {message}".lower()
+    if '<a href' in combined_text or 'http://' in combined_text or 'https://' in combined_text:
+        app.logger.info("Blocked bot submission (link pattern in message)")
+        return jsonify({
+            "status": "success",
+            "message": "Your quote request was sent successfully."
+        })
 
     # Basic server-side validation — never trust the client alone
     if not name or not email:
