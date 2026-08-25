@@ -114,7 +114,7 @@ def about():
     # Placeholder content — edit the strings below with the real name,
     # title, and bio copy. Keeping it here (rather than hardcoded in the
     # template) means future edits only need to happen in one place.
-    ceo = {
+     cofounder= {
            'name': 'Mohsin Altaf',
            'title': 'Co-founder & Managing Director',
            'photo': 'images/team/ceo.webp',
@@ -136,42 +136,34 @@ def about():
            ]
        }
 
-    # Leadership duo (2nd section) — CEO + Marketing Manager, same card
-    # treatment as the Team grid below. Placeholder identities until real
-    # names/titles/bios are provided. Photo-exists check mirrors the Team
-    # section pattern below: shows a clean "Photo Coming Soon" placeholder
-    # until a correctly-named file is saved to that path.
-    leadership_raw = [
-        {
-            'name': 'Muhammad Ismail',
-            'title': 'Chief Executive Officer',
-            'photo_path': 'images/team/ceo-final.webp',
-            'bio': 'Ismail leads The Best Estimator LLC\'s overall direction and growth, working alongside the estimating team to make sure every project reflects the same standard of accuracy and reliability the company was built on. With a hands-on approach to how the business runs day to day, Ismail focuses on keeping the team aligned around one goal: giving clients estimates they can actually build on'
-        },
-        {
-            'name': 'Akash Ahmed',
-            'title': 'Marketing Manager',
-            'photo_path': 'images/team/akash.webp',
-            'bio': 'Akash leads marketing for The Best Estimator LLC, shaping how the company connects with contractors and project owners looking for dependable estimating support. From brand messaging to outreach strategy, Akash works to make sure the right clients find us at the right time, and that what they see reflects the quality of work behind it.'
-        },
-    ]
-    leadership = []
-    for member in leadership_raw:
-        photo_exists = (BASE_DIR / 'static' / member['photo_path']).exists()
-        leadership.append({
-            'name': member['name'],
-            'title': member['title'],
-            'bio': member['bio'],
-            'photo': member['photo_path'] if photo_exists else None,
-        })
+     ceo= {
+             'name': 'Ismail Ijaz',
+             'title': 'Chief Executive Officer',
+             'photo': 'images/team/ceo.webp',
+             'bio_paragraphs': [
+                 'The Best Estimator LLC was built from a simple idea: construction '
+                 'professionals should be able to rely on their estimates before they '
+                 'commit to a project. What started as a focused estimating service '
+                 'has grown through hands-on project experience into a team supporting '
+                 'projects across multiple trades and scopes of work.',
 
+                 'Over the years, our work has been shaped by the projects themselves — '
+                 'each set of plans, every revision, and every scope requiring a '
+                 'different level of attention. We have now completed more than 3,000 '
+                 'projects, giving us practical experience across a wide range of '
+                 'construction work. Our approach remains straightforward: understand '
+                 'the plans, identify what the project actually requires, and deliver '
+                 'organized takeoffs and estimates that give our clients a clearer '
+                 'picture of their costs before the work begins.'
+             ]
+         }
     # Team section (3rd section) — placeholder identities until real names/
     # titles/bios are provided. Each entry's photo path is pre-set to where
     # the real file should eventually live; if that file doesn't exist yet,
     # the template shows a clean "Photo Coming Soon" placeholder instead of
     # a broken image. The moment a correctly-named file is saved to that
     # path, it starts rendering automatically — no code changes needed.
-    team_raw = [
+     team_raw = [
         {
             'name': 'Hizbullah Mashwani',
             'title': 'Sales Representative',
@@ -191,8 +183,8 @@ def about():
             'bio': 'Areeba leads the estimating team day to day, keeping every project moving smoothly from initial scope through to a finished takeoff. She works closely with the team to keep deliverables accurate, consistent, and on schedule for every client.'
         },
     ]
-    team = []
-    for member in team_raw:
+     team = []
+     for member in team_raw:
         photo_exists = (BASE_DIR / 'static' / member['photo_path']).exists()
         team.append({
             'name': member['name'],
@@ -200,7 +192,7 @@ def about():
             'bio': member['bio'],
             'photo': member['photo_path'] if photo_exists else None,
         })
-    return render_template('about.html', ceo=ceo, leadership=leadership, team=team)
+     return render_template('about.html', cofounder=cofounder, ceo=ceo, team=team)
 
 @app.route('/pricing')
 def pricing():

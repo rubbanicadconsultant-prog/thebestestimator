@@ -20,15 +20,15 @@
                 <span class="eyebrow">LEADERSHIP</span>
 
                 <h1 class="about-hero-name">
-                    {{ ceo.name }}
+                    {{ cofounder.name }}
                 </h1>
 
                 <p class="about-hero-title-role">
-                    {{ ceo.title }}
+                    {{ cofounder.title }}
                 </p>
 
-                <div class="about-hero-bio">
-                    {% for paragraph in ceo.bio_paragraphs %}
+                <div class="about-hero-bio-cofounder">
+                    {% for paragraph in cofounder.bio_paragraphs %}
                     <p>{{ paragraph }}</p>
                     {% endfor %}
                 </div>
@@ -36,8 +36,8 @@
 
             <div class="about-hero-photo">
                 <img
-                    src="{{ url_for('static', filename=ceo.photo) }}"
-                    alt="{{ ceo.name }}, {{ ceo.title }} of The Best Estimator LLC"
+                    src="{{ url_for('static', filename=cofounder.photo) }}"
+                    alt="{{ cofounder.name }}, {{ cofounder.title }} of The Best Estimator LLC"
                     class="about-hero-photo-img"
                 >
             </div>
@@ -57,93 +57,33 @@
      existing --color-bg / --color-primary tokens.
      ========================================================== -->
 <section class="about-leadership">
+    <div class="about-hero-inner container ceo-hero-inner">
+        <div class="ceo-hero-bg" aria-hidden="true"></div>
 
-    <div class="container about-leadership-inner">
+        <div class="about-hero-copy ceo-hero-copy">
+            <span class="eyebrow-ceo">LEADERSHIP</span>
 
-        <div class="about-leadership-header">
-            <span class="eyebrow-aboutus">
-                LEADERSHIP
-            </span>
+            <h1 class="about-hero-name">
+                {{ ceo.name }}
+            </h1>
+
+            <p class="about-hero-title-role-ceo">
+                {{ ceo.title }}
+            </p>
+
+            <div class="about-hero-bio">
+                {% for paragraph in ceo.bio_paragraphs %}
+                <p>{{ paragraph }}</p>
+                {% endfor %}
+            </div>
         </div>
 
-        <div class="about-leadership-row">
-
-            <div class="about-leadership-person">
-
-                <div class="about-leadership-photo-frame">
-
-                    {% if leadership[0].photo %}
-
-                    <img
-                        src="{{ url_for('static', filename=leadership[0].photo) }}"
-                        alt="{{ leadership[0].name }}, {{ leadership[0].title }} at The Best Estimator LLC"
-                        class="about-leadership-photo-img"
-                    >
-
-                    {% else %}
-
-                    <div class="about-leadership-photo-placeholder">
-                        <i class="fas fa-user"></i>
-                        <span>Photo Coming Soon</span>
-                    </div>
-
-                    {% endif %}
-
-                </div>
-
-                <h3 class="about-leadership-name">
-                    {{ leadership[0].name }}
-                </h3>
-
-                <p class="about-leadership-title-role">
-                    {{ leadership[0].title }}
-                </p>
-
-                <p class="about-leadership-bio">
-                    {{ leadership[0].bio }}
-                </p>
-
-            </div>
-
-            <div class="about-leadership-divider" aria-hidden="true"></div>
-
-            <div class="about-leadership-person">
-
-                <div class="about-leadership-photo-frame">
-
-                    {% if leadership[1].photo %}
-
-                    <img
-                        src="{{ url_for('static', filename=leadership[1].photo) }}"
-                        alt="{{ leadership[1].name }}, {{ leadership[1].title }} at The Best Estimator LLC"
-                        class="about-leadership-photo-img"
-                    >
-
-                    {% else %}
-
-                    <div class="about-leadership-photo-placeholder">
-                        <i class="fas fa-user"></i>
-                        <span>Photo Coming Soon</span>
-                    </div>
-
-                    {% endif %}
-
-                </div>
-
-                <h3 class="about-leadership-name">
-                    {{ leadership[1].name }}
-                </h3>
-
-                <p class="about-leadership-title-role">
-                    {{ leadership[1].title }}
-                </p>
-
-                <p class="about-leadership-bio">
-                    {{ leadership[1].bio }}
-                </p>
-
-            </div>
-
+        <div class="about-hero-photo ceo-hero-photo">
+            <img
+                src="{{ url_for('static', filename=ceo.photo) }}"
+                alt="{{ ceo.name }}, {{ ceo.title }} of The Best Estimator LLC"
+                class="about-hero-photo-img"
+            >
         </div>
 
     </div>
