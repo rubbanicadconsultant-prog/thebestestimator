@@ -8,6 +8,7 @@
     --color-primary: #1e4d7b;
     --color-navbar-bg:#f7f9fc;    /* Navy Blue - Trust/Brand */
     --color-primary-hover: #17395c; /* Darker navy for hover states */
+    --color-accent-hero: #545b64;
     --color-accent: #545b64;        /* Charcoal Grey - Highlights/Action (replaces gold) */
     --color-accent-rgb: 84, 91, 100;
     --color-navbar-border: rgba(226, 232, 240, 0.8);
@@ -67,6 +68,7 @@
     --color-footer-bg:#0d0d0d;
     --color-footer-text: #b0b0b0;
     --color-accent: #D4AF37;
+     --color-accent-hero: #545b64;
     --color-letteropen: #1B2A41;
     --color-about-choose:
         linear-gradient(

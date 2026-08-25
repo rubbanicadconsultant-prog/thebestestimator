@@ -43,7 +43,7 @@
         245deg,
         var(--color-bg) 0%,
         rgba(var(--color-accent-rgb), 0.55) 28%,
-        var(--color-accent) 52%,
+        var(--color-accent-hero) 52%,
         var(--color-primary) 100%
     );
 }
