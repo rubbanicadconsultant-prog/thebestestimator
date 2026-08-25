@@ -141,21 +141,18 @@ def about():
              'title': 'Chief Executive Officer',
              'photo': 'images/team/ceo.webp',
              'bio_paragraphs': [
-                 'The Best Estimator LLC was built from a simple idea: construction '
-                 'professionals should be able to rely on their estimates before they '
-                 'commit to a project. What started as a focused estimating service '
-                 'has grown through hands-on project experience into a team supporting '
-                 'projects across multiple trades and scopes of work.',
+                 'Ismail leads The Best Estimator LLC as CEO, focused on the '
+                 'direction and growth of the company as it takes on a wider range '
+                 'of projects and trades.',
 
-                 'Over the years, our work has been shaped by the projects themselves — '
-                 'each set of plans, every revision, and every scope requiring a '
-                 'different level of attention. We have now completed more than 3,000 '
-                 'projects, giving us practical experience across a wide range of '
-                 'construction work. Our approach remains straightforward: understand '
-                 'the plans, identify what the project actually requires, and deliver '
-                 'organized takeoffs and estimates that give our clients a clearer '
-                 'picture of their costs before the work begins.'
-             ]
+                 'His approach centers on building a team that clients can trust '
+                 'with the numbers that matter most before a project begins. As '
+                 'The Best Estimator LLC has grown alongside its cofounder\'s '
+                 'hands-on estimating work, Ismail has focused on '
+                 'strengthening client relationships, scaling the team, '
+                 'expanding into new trades, and making sure the company\'s growth never comes at the cost of the '
+                 'accuracy and reliability clients depend on.'
+             ],
          }
     # Team section (3rd section) — placeholder identities until real names/
     # titles/bios are provided. Each entry's photo path is pre-set to where
