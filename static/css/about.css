@@ -816,3 +816,180 @@
         height: 160px;
     }
 }
+
+/* ==========================================================
+   ABOUT — Leadership duo (2-up variant of the Team grid)
+   Reuses .about-team-card / .about-team-photo-frame as-is.
+   Only difference from the 3-up Team grid below: 2 columns
+   instead of 3, capped narrower so two cards don't stretch
+   too wide on large screens.
+   ========================================================== */
+
+.about-leadership-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .about-leadership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================
+   ABOUT — Leadership duo
+   Standing cutout portraits, deliberately distinct from the
+   Team card grid — reads as its own tier, not two extra team
+   members. Background is derived from existing tokens only:
+   --color-bg mixed with a touch of --color-primary. In light
+   theme that reads as a soft ice-gray; in dark theme --color-bg
+   is already dark, so the same mix just stays dark — no separate
+   light/dark rules needed, it rides your existing theme system.
+   ========================================================== */
+
+.about-leadership {
+    position: relative;
+    background: color-mix(in srgb, var(--color-bg) 93%, var(--color-primary) 7%);
+    padding: 5.5rem 0 5rem;
+    border-top: 1px solid var(--color-navbar-border);
+}
+
+.about-leadership-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-leadership-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(3rem, 10vw, 9rem);
+    flex-wrap: wrap;
+}
+
+.about-leadership-person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+}
+
+.about-leadership-photo-frame {
+    height: 380px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-leadership-photo-img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    display: block;
+}
+
+.about-leadership-photo-placeholder {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px dashed var(--color-navbar-border);
+}
+
+.about-leadership-photo-placeholder i {
+    font-size: 2.5rem;
+    color: var(--color-navbar-border);
+}
+
+.about-leadership-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--color-text-dark);
+    margin-bottom: 0.3rem;
+}
+
+.about-leadership-title-role {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.about-leadership-bio {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    max-width: 280px;
+}
+
+@media (max-width: 768px) {
+    .about-leadership {
+        padding: 4.5rem 0 4rem;
+    }
+
+    .about-leadership-row {
+        gap: 3.5rem;
+    }
+
+    .about-leadership-photo-frame {
+        height: 300px;
+    }
+}
+@media (max-width: 640px) {
+    .about-leadership-photo-frame {
+        height: 240px;
+    }
+
+    .about-leadership-row {
+        gap: 1.5rem;
+    }
+
+    .about-leadership-divider {
+        margin: 0 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-leadership-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+}
+.about-leadership-divider {
+    width: 1px;
+    align-self: stretch;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--color-navbar-border) 15%,
+        var(--color-navbar-border) 85%,
+        transparent 100%
+    );
+    margin: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+@media (max-width: 480px) {
+    .about-leadership-divider {
+        display: none;
+    }
+}

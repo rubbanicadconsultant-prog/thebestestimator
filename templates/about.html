@@ -48,36 +48,107 @@
 
 
 <!-- ==========================================================
-     ABOUT — Second spotlight (Senior Sales Closer)
+     ABOUT — Leadership duo (CEO + Marketing Manager)
+     Standing cutout portraits, same photo treatment as the CEO
+     hero — deliberately NOT styled like the Team cards below,
+     so leadership reads as a distinct tier, not "two more team
+     members." Background auto-adapts: soft ice-gray tint in
+     light theme, stays dark in dark theme, both derived from
+     existing --color-bg / --color-primary tokens.
      ========================================================== -->
-<section class="about-spotlight">
-    <div class="container about-spotlight-inner">
+<section class="about-leadership">
 
-        <span class="eyebrow">MEET THE TEAM</span>
+    <div class="container about-leadership-inner">
 
-        <div class="about-spotlight-photo-frame">
-            <img
-                src="{{ url_for('static', filename=closer.photo) }}"
-                alt="{{ closer.name }}, {{ closer.title }} at The Best Estimator LLC"
-                class="about-spotlight-photo-img"
-            >
+        <div class="about-leadership-header">
+            <span class="eyebrow-aboutus">
+                LEADERSHIP
+            </span>
         </div>
 
-        <h2 class="about-spotlight-name">
-            {{ closer.name }}
-        </h2>
+        <div class="about-leadership-row">
 
-        <p class="about-spotlight-title-role">
-            {{ closer.title }}
-        </p>
+            <div class="about-leadership-person">
 
-        <p class="about-spotlight-bio">
-            {{ closer.bio }}
-        </p>
+                <div class="about-leadership-photo-frame">
+
+                    {% if leadership[0].photo %}
+
+                    <img
+                        src="{{ url_for('static', filename=leadership[0].photo) }}"
+                        alt="{{ leadership[0].name }}, {{ leadership[0].title }} at The Best Estimator LLC"
+                        class="about-leadership-photo-img"
+                    >
+
+                    {% else %}
+
+                    <div class="about-leadership-photo-placeholder">
+                        <i class="fas fa-user"></i>
+                        <span>Photo Coming Soon</span>
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <h3 class="about-leadership-name">
+                    {{ leadership[0].name }}
+                </h3>
+
+                <p class="about-leadership-title-role">
+                    {{ leadership[0].title }}
+                </p>
+
+                <p class="about-leadership-bio">
+                    {{ leadership[0].bio }}
+                </p>
+
+            </div>
+
+            <div class="about-leadership-divider" aria-hidden="true"></div>
+
+            <div class="about-leadership-person">
+
+                <div class="about-leadership-photo-frame">
+
+                    {% if leadership[1].photo %}
+
+                    <img
+                        src="{{ url_for('static', filename=leadership[1].photo) }}"
+                        alt="{{ leadership[1].name }}, {{ leadership[1].title }} at The Best Estimator LLC"
+                        class="about-leadership-photo-img"
+                    >
+
+                    {% else %}
+
+                    <div class="about-leadership-photo-placeholder">
+                        <i class="fas fa-user"></i>
+                        <span>Photo Coming Soon</span>
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <h3 class="about-leadership-name">
+                    {{ leadership[1].name }}
+                </h3>
+
+                <p class="about-leadership-title-role">
+                    {{ leadership[1].title }}
+                </p>
+
+                <p class="about-leadership-bio">
+                    {{ leadership[1].bio }}
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
-</section>
 
+</section>
 
 <!-- ==========================================================
      ABOUT — Why Choose Us

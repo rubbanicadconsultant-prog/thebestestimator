@@ -116,7 +116,7 @@ def about():
     # template) means future edits only need to happen in one place.
     ceo = {
            'name': 'Mohsin Altaf',
-           'title': 'Managing Director',
+           'title': 'Co-founder & Managing Director',
            'photo': 'images/team/ceo.webp',
            'bio_paragraphs': [
                'The Best Estimator LLC was built from a simple idea: construction '
@@ -135,18 +135,35 @@ def about():
                'picture of their costs before the work begins.'
            ]
        }
-    closer = {
-        'name': 'Areeba',
-        'title': 'General Manager',
-        'photo': 'images/team/kylie_final.webp',
-        'bio': (
-            'Areeba keeps The Best Estimator LLC running day to day as General Manager, '
-            'overseeing how every project moves from initial scope through to a finished '
-            'takeoff. She works closely with the estimating team to keep deliverables '
-            'accurate, on schedule, and consistent, so clients get the same reliable '
-            'quality whether it\'s their first project with us or their fifteenth.'
-        ),
-    }
+
+    # Leadership duo (2nd section) — CEO + Marketing Manager, same card
+    # treatment as the Team grid below. Placeholder identities until real
+    # names/titles/bios are provided. Photo-exists check mirrors the Team
+    # section pattern below: shows a clean "Photo Coming Soon" placeholder
+    # until a correctly-named file is saved to that path.
+    leadership_raw = [
+        {
+            'name': 'Muhammad Ismail',
+            'title': 'Chief Executive Officer',
+            'photo_path': 'images/team/ceo-final.webp',
+            'bio': 'Ismail leads The Best Estimator LLC\'s overall direction and growth, working alongside the estimating team to make sure every project reflects the same standard of accuracy and reliability the company was built on. With a hands-on approach to how the business runs day to day, Ismail focuses on keeping the team aligned around one goal: giving clients estimates they can actually build on'
+        },
+        {
+            'name': 'Akash Ahmed',
+            'title': 'Marketing Manager',
+            'photo_path': 'images/team/akash.webp',
+            'bio': 'Akash leads marketing for The Best Estimator LLC, shaping how the company connects with contractors and project owners looking for dependable estimating support. From brand messaging to outreach strategy, Akash works to make sure the right clients find us at the right time, and that what they see reflects the quality of work behind it.'
+        },
+    ]
+    leadership = []
+    for member in leadership_raw:
+        photo_exists = (BASE_DIR / 'static' / member['photo_path']).exists()
+        leadership.append({
+            'name': member['name'],
+            'title': member['title'],
+            'bio': member['bio'],
+            'photo': member['photo_path'] if photo_exists else None,
+        })
 
     # Team section (3rd section) — placeholder identities until real names/
     # titles/bios are provided. Each entry's photo path is pre-set to where
@@ -156,7 +173,7 @@ def about():
     # path, it starts rendering automatically — no code changes needed.
     team_raw = [
         {
-            'name': 'Hizbullah',
+            'name': 'Hizbullah Mashwani',
             'title': 'Sales Representative',
             'photo_path': 'images/team/Hizbullah.webp',
             'bio': 'Hizbullah works with prospective clients to understand their project needs and match them with the right estimating services. He supports the sales process from first contact through follow-up, helping ensure client questions are answered clearly at every stage.'
@@ -168,15 +185,10 @@ def about():
             'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
         },
         {
-            'name': 'Waleed Qureshi',
-            'title': 'Senior Closer',
-            'photo_path': 'images/team/jordan.webp',
-            'bio': (
-                'Waleed is often the first voice clients hear from at The Best Estimator LLC.   '
-                'As Senior Closer, he works directly with contractors and project owners to understand their scope'
-                'and connect them with the right estimating solution, turning an initial inquiry into a clear, '
-                'confident next step.'
-            ),
+            'name': 'Areeba Ali',
+            'title': 'Team Lead',
+            'photo_path': 'images/team/kylie_final.webp',
+            'bio': 'Areeba leads the estimating team day to day, keeping every project moving smoothly from initial scope through to a finished takeoff. She works closely with the team to keep deliverables accurate, consistent, and on schedule for every client.'
         },
     ]
     team = []
@@ -188,7 +200,7 @@ def about():
             'bio': member['bio'],
             'photo': member['photo_path'] if photo_exists else None,
         })
-    return render_template('about.html', ceo=ceo, closer=closer, team=team)
+    return render_template('about.html', ceo=ceo, leadership=leadership, team=team)
 
 @app.route('/pricing')
 def pricing():
