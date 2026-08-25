@@ -139,11 +139,12 @@ def about():
      ceo= {
              'name': 'Ismail Ijaz',
              'title': 'Chief Executive Officer',
-             'photo': 'images/team/ceo.webp',
+             'photo': 'images/team/ceo_final.webp',
              'bio_paragraphs': [
                  'Ismail leads The Best Estimator LLC as CEO, focused on the '
                  'direction and growth of the company as it takes on a wider range '
-                 'of projects and trades.',
+                 'of projects and trades. His approach centers on building a team that clients can trust '
+                 'with the numbers that matter most before a project begins.',
 
                  'His approach centers on building a team that clients can trust '
                  'with the numbers that matter most before a project begins. As '
