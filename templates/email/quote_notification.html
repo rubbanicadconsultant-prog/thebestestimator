@@ -7,67 +7,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Quote Request</title>
 </head>
-<body style="margin:0; padding:0; background-color:whitesmoke; font-family: Arial, Helvetica, sans-serif;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f7f9fc; padding: 32px 16px;">
+<body style="margin:0; padding:0; background-color:#050505; font-family: Arial, Helvetica, sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#050505; padding: 40px 16px;">
         <tr>
             <td align="center">
-                <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#ffffff; border-radius:10px; overflow:hidden; border:1px solid #e2e8f0;">
+                <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#0d1528; border-radius:12px; overflow:hidden; border:1px solid #1a2440;">
 
-                    <!-- Header band -->
+                    <!-- Thin gold top accent — the first thing the eye catches -->
                     <tr>
-                        <td style="background-color:whitesmoke; padding: 28px 32px;">
-                            <img src="cid:tbe_logo" alt="The Best Estimator" width="150" style="display:block; height:auto;">
+                        <td style="background-color:#D4AF37; height:3px; line-height:3px; font-size:0;">&nbsp;</td>
+                    </tr>
+
+                    <!-- Header — compact wordmark top-left, status badge top-right -->
+                    <tr>
+                        <td style="background-color:#0a0f1f; padding: 24px 32px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="left" style="vertical-align:middle;">
+                                        <p style="margin:0; font-family: Georgia, 'Times New Roman', serif; font-size:16px; font-weight:700; letter-spacing:0.3px; color:#f7f9fc;">
+                                            The <span style="color:#D4AF37;">Best</span> Estimator
+                                        </p>
+                                        <p style="margin:2px 0 0; font-size:8px; font-weight:700; letter-spacing:1.8px; color:#6b7280; text-transform:uppercase;">
+                                            LLC
+                                        </p>
+                                    </td>
+                                    <td align="right" style="vertical-align:middle;">
+                                        <span style="display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:#D4AF37; text-transform:uppercase; border:1px solid rgba(212,175,55,0.4); border-radius:20px; padding:5px 12px;">
+                                            New Lead
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
 
-                    <!-- Gold accent rule -->
+                    <!-- Divider -->
                     <tr>
-                        <td style="background-color:#D99A1E; height:4px; line-height:4px; font-size:0;">&nbsp;</td>
+                        <td style="background-color:#1a2440; height:1px; line-height:1px; font-size:0;">&nbsp;</td>
                     </tr>
 
                     <!-- Title -->
                     <tr>
-                        <td style="padding: 32px 32px 8px;">
-                            <p style="margin:0; font-size:12px; font-weight:bold; letter-spacing:1.5px; color:#D99A1E; text-transform:uppercase;">New Lead Submitted</p>
-                            <h1 style="margin: 8px 0 0; font-size:22px; color:#1B1F2A; font-weight:800;">Quote Request Received</h1>
+                        <td style="padding: 36px 32px 8px;">
+                            <p style="margin:0; font-size:11px; font-weight:bold; letter-spacing:2px; color:#D4AF37; text-transform:uppercase;">Quote Request</p>
+                            <h1 style="margin: 10px 0 0; font-size:24px; color:#f7f9fc; font-weight:800; letter-spacing:-0.3px;">A new project just came in.</h1>
                         </td>
                     </tr>
 
                     <!-- Details table -->
                     <tr>
-                        <td style="padding: 20px 32px 8px;">
+                        <td style="padding: 24px 32px 8px;">
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; width:150px; vertical-align:top;">
-                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#8b93a7; text-transform:uppercase;">Contractor</span>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; width:150px; vertical-align:top;">
+                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#6b7280; text-transform:uppercase;">Contractor</span>
                                     </td>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="font-size:14px; color:#1B1F2A; font-weight:600;">{{ name }}</span><br>
-                                        <a href="mailto:{{ email }}" style="font-size:13px; color:#1B63AE; text-decoration:none;">{{ email }}</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#8b93a7; text-transform:uppercase;">Company</span>
-                                    </td>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="font-size:14px; color:#1B1F2A;">{{ organization or "Not provided" }}</span>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="font-size:14px; color:#f7f9fc; font-weight:600;">{{ name }}</span><br>
+                                        <a href="mailto:{{ email }}" style="font-size:13px; color:#6fa8dc; text-decoration:none;">{{ email }}</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#8b93a7; text-transform:uppercase;">Project Trade</span>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#6b7280; text-transform:uppercase;">Company</span>
                                     </td>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="display:inline-block; font-size:12px; font-weight:bold; color:#1B63AE; background-color:#eaf1fa; padding:4px 10px; border-radius:20px;">{{ project_type or "Not specified" }}</span>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="font-size:14px; color:#f7f9fc;">{{ organization or "Not provided" }}</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#8b93a7; text-transform:uppercase;">Services</span>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#6b7280; text-transform:uppercase;">Project Trade</span>
                                     </td>
-                                    <td style="padding: 12px 0; border-bottom:1px solid #eef1f6; vertical-align:top;">
-                                        <span style="font-size:14px; color:#1B1F2A;">{{ services or "None specified" }}</span>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="display:inline-block; font-size:12px; font-weight:bold; color:#8ec1f0; background-color:rgba(43,108,176,0.18); padding:5px 12px; border-radius:20px;">{{ project_type or "Not specified" }}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#6b7280; text-transform:uppercase;">Services</span>
+                                    </td>
+                                    <td style="padding: 14px 0; border-bottom:1px solid #1a2440; vertical-align:top;">
+                                        <span style="font-size:14px; color:#f7f9fc;">{{ services or "None specified" }}</span>
                                     </td>
                                 </tr>
                             </table>
@@ -76,56 +97,12 @@
 
                     <!-- Message block -->
                     <tr>
-                        <td style="padding: 8px 32px 28px;">
-                            <p style="margin:0 0 8px; font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#8b93a7; text-transform:uppercase;">Message</p>
-                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f7f9fc; border-radius:8px; border-left:3px solid #D99A1E;">
+                        <td style="padding: 12px 32px 28px;">
+                            <p style="margin:0 0 10px; font-size:11px; font-weight:bold; letter-spacing:0.5px; color:#6b7280; text-transform:uppercase;">Message</p>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0f1f; border-radius:8px; border-left:3px solid #D4AF37;">
                                 <tr>
-                                    <td style="padding: 16px 18px;">
-                                        <p style="margin:0; font-size:14px; color:#333c4d; line-height:1.6;">{{ message or "No message provided." }}</p>
+                                    <td style="padding: 18px 20px;">
+                                        <p style="margin:0; font-size:14px; color:rgba(255,255,255,0.87); line-height:1.65;">{{ message or "No message provided." }}</p>
                                     </td>
                                 </tr>
                             </table>
-                        </td>
-                    </tr>
-
-                    {% if has_attachment %}
-                    <!-- Attachment note -->
-                    <tr>
-                        <td style="padding: 0 32px 28px;">
-                            <table role="presentation" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td style="background-color:#eaf1fa; border-radius:6px; padding:10px 16px;">
-                                        <span style="font-size:13px; color:#1B63AE; font-weight:600;">📎 Blueprint file attached to this email</span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    {% endif %}
-
-                    <!-- CTA -->
-                    <tr>
-                        <td style="padding: 0 32px 32px;">
-                            <a href="mailto:{{ email }}?subject=Re:%20Your%20Quote%20Request"
-                               style="display:inline-block; background-color:#1B63AE; color:#ffffff; text-decoration:none; font-size:14px; font-weight:bold; padding:13px 28px; border-radius:30px;">
-                                Reply to {{ name.split(' ')[0] if name else 'Contractor' }}
-                            </a>
-                        </td>
-                    </tr>
-
-                    <!-- Footer -->
-                    <tr>
-                        <td style="background-color:#f7f9fc; padding: 20px 32px; border-top:1px solid #eef1f6;">
-                            <p style="margin:0; font-size:11px; color:#a3abbd; line-height:1.6;">
-                                This notification was generated automatically from a quote request submitted at thebestestimatorllc.com.<br>
-                                Reply-to is set directly to the contractor's email — replying here goes straight to them, not back into this notification system.
-                            </p>
-                        </td>
-                    </tr>
-
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
