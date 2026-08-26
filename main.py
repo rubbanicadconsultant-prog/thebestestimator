@@ -169,10 +169,10 @@ def about():
             'bio': 'Hizbullah works with prospective clients to understand their project needs and match them with the right estimating services. He supports the sales process from first contact through follow-up, helping ensure client questions are answered clearly at every stage.'
         },
         {
-            'name': 'Abdullah Fazal',
-            'title': 'IT Specialist',
-            'photo_path': 'images/team/donnie.webp',
-            'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
+            'name': 'Akash Ahmed',
+            'title': 'Marketing Executive',
+            'photo_path': 'images/team/akash.webp',
+            'bio': "Akash leads marketing for The Best Estimator LLC, connecting contractors and project owners with our estimating services through clear messaging and targeted outreach, so the right clients find us at the right time."
         },
         {
             'name': 'Areeba Ali',
