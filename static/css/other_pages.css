@@ -266,6 +266,183 @@
 /* ==========================================
    PRICING & SERVICES PAGE LAYOUTS
    ========================================== */
+   /* ==========================================================
+      PRICING — Dedicated Estimator rate card
+      Border gradient auto-adapts per theme via var(--color-primary)
+      / var(--color-accent). Checkmarks are inline SVG (not an icon
+      font) so they render identically everywhere with zero external
+      dependency, and pick up the theme's accent color automatically
+      via currentColor.
+      ========================================================== */
+
+   .dedicated-rate-section {
+       padding: 4rem 0 2rem;
+       background-color: var(--color-bg);
+   }
+
+   .dedicated-rate-intro {
+       text-align: center;
+       max-width: 700px;
+       margin: 0 auto 2.5rem;
+       font-family: var(--font-heading);
+       font-size: 1.1rem;
+       line-height: 1.7;
+       color: var(--color-paragraph);
+   }
+
+   .dedicated-rate-border-wrap {
+       max-width: 1000px;
+       margin: 0 auto;
+       padding: 2px;
+       border-radius: calc(var(--border-radius) * 1.4);
+       background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+   }
+
+   .dedicated-rate-card {
+       display: flex;
+       align-items: center;
+       gap: 2.5rem;
+       padding: 3rem;
+       border-radius: calc(calc(var(--border-radius) * 1.4) - 2px);
+       background-color: var(--color-surface);
+   }
+
+   .dedicated-rate-left {
+       display: flex;
+       flex-direction: column;
+       flex: 0 0 260px;
+   }
+
+   .dedicated-rate-title {
+       font-family: var(--font-heading);
+       font-size: 1.6rem;
+       font-weight: 800;
+       color: var(--color-text-dark);
+       margin-bottom: 1rem;
+       line-height: 1.15;
+   }
+
+   .dedicated-rate-price {
+       display: flex;
+       align-items: baseline;
+       gap: 0.15rem;
+       color: var(--color-primary);
+   }
+
+   .dedicated-rate-symbol {
+       font-family: var(--font-heading);
+       font-size: 1.8rem;
+       font-weight: 700;
+   }
+
+   .dedicated-rate-num {
+       font-family: var(--font-heading);
+       font-size: 3.2rem;
+       font-weight: 800;
+       line-height: 1;
+   }
+
+   .dedicated-rate-period {
+       font-family: var(--font-heading);
+       font-size: 1.2rem;
+       font-weight: 600;
+       color: var(--color-text-muted);
+       margin-left: 0.2rem;
+   }
+
+   .dedicated-rate-unit {
+       font-family: var(--font-heading);
+       font-size: 0.9rem;
+       color: var(--color-text-muted);
+       margin-top: 0.5rem;
+   }
+
+   .dedicated-rate-divider {
+       width: 1px;
+       align-self: stretch;
+       background-color: var(--color-navbar-border);
+       flex: 0 0 1px;
+   }
+
+   .dedicated-rate-right {
+       min-width: 0;
+       flex: 1;
+   }
+
+   .dedicated-rate-heading {
+       font-family: var(--font-heading);
+       font-size: 1.15rem;
+       font-weight: 700;
+       color: var(--color-text-dark);
+       margin-bottom: 1.5rem;
+   }
+
+   /* Flexbox-based 2-column checklist — wraps cleanly to 1 column on mobile */
+   .dedicated-rate-checklist {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 1.1rem 2rem;
+   }
+
+   .dedicated-rate-item {
+       flex: 0 0 calc(50% - 1rem);
+       display: flex;
+       align-items: flex-start;
+       gap: 0.75rem;
+       font-family: var(--font-heading);
+       font-size: 0.98rem;
+       color: var(--color-paragraph);
+       line-height: 1.5;
+   }
+
+   .check-badge {
+       color: var(--color-accent);
+       flex-shrink: 0;
+       margin-top: 2px;
+   }
+
+   .check-badge svg {
+       display: block;
+       width: 20px;
+       height: 20px;
+   }
+
+   @media (max-width: 900px) {
+       .dedicated-rate-card {
+           flex-direction: column;
+           padding: 2.5rem;
+           text-align: center;
+       }
+       .dedicated-rate-left {
+           align-items: center;
+           flex-basis: auto;
+       }
+       .dedicated-rate-price {
+           justify-content: center;
+       }
+       .dedicated-rate-divider {
+           width: 100%;
+           height: 1px;
+           flex-basis: 1px;
+       }
+       .dedicated-rate-item {
+           flex: 0 0 100%;
+           text-align: left;
+       }
+   }
+
+   @media (max-width: 480px) {
+       .dedicated-rate-card {
+           padding: 1.75rem 1.5rem;
+       }
+       .dedicated-rate-num {
+           font-size: 2.6rem;
+       }
+       .dedicated-rate-intro {
+           font-size: 1rem;
+       }
+   }
 #pricing-models {
     padding: 4rem 0 8rem;
     background-color: var(--color-bg);
@@ -859,7 +1036,7 @@ body.has-letter-open {
 
 /* FAQ Accordion Section */
 #faq-section {
-    padding: 5rem 0 7rem; /* Increased bottom padding */
+    padding: 5rem 0 3rem; /* Increased bottom padding */
 }
 
 .faq-container {
