@@ -390,7 +390,24 @@
         </footer>
 
         <!-- Custom JS -->
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-        {% block scripts %}{% endblock %}
+           <!--
+               JS split by scope, same pattern as the CSS @import chain.
+               Site-wide modules first (every page needs these), then
+               page-specific ones (each guards itself on the elements
+               it needs, so loading it on a page without them is a
+               harmless no-op — safe to include everywhere).
+           -->
+           <!-- Site-wide -->
+           <script src="{{ url_for('static', filename='js/theme-toggle.js') }}"></script>
+           <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+           <script src="{{ url_for('static', filename='js/scroll-reveal.js') }}"></script>
+
+           <!-- Page-specific (no-op if their elements aren't on the page) -->
+           <script src="{{ url_for('static', filename='js/entrance-animations.js') }}"></script>
+           <script src="{{ url_for('static', filename='js/testimonial-slider.js') }}"></script>
+           <script src="{{ url_for('static', filename='js/service-flashcards.js') }}"></script>
+           <script src="{{ url_for('static', filename='js/faq-accordion.js') }}"></script>
+           <script src="{{ url_for('static', filename='js/about-scroll.js') }}"></script>
+           {% block scripts %}{% endblock %}
     </body>
 </html>
