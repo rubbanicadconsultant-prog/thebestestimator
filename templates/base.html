@@ -64,10 +64,15 @@
             rel="stylesheet"
             href="{{ url_for('static', filename='css/style.css') }}"
         />
-        <!-- Favicon — square, dedicated file (not the wide logo) so it
-             meets Google's 1:1 aspect ratio requirement for search results -->
-        <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='images/favicon.png') }}">
-        <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <!-- Favicon — new bold "B" mark (replaces the old building icon,
+                  which lost legibility at real tab/tiny sizes). Full set below
+                  so every browser/device gets the correctly sized file instead
+                  of scaling down a single large PNG. -->
+             <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+             <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32.png') }}">
+             <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16.png') }}">
+             <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+             <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/favicon-192.png') }}">
         <!-- FontAwesome for premium icons -->
         <link
             rel="stylesheet"
@@ -178,14 +183,37 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
+        </header>
 
-            <!-- Mobile slide-down menu -->
-            <div id="mobile-nav-panel" class="mobile-nav-panel">
-                <a href="{{ url_for('index') }}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
-                <a href="{{ url_for('samples') }}" class="{% if request.path == '/samples' %}active{% endif %}">Samples</a>
-                <a href="{{ url_for('services_page') }}" class="{% if request.path == '/services' %}active{% endif %}">Services</a>
-                <a href="{{ url_for('pricing') }}" class="{% if request.path == '/pricing' %}active{% endif %}">Pricing</a>
-                <a href="{{ url_for('about') }}" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+        <!-- Mobile full-screen menu (Hugo-style takeover). Deliberately placed
+             OUTSIDE <header>: #site-header has a `transform` (for its
+             auto-hide-on-scroll behavior), and a transformed ancestor becomes
+             the containing block for `position: fixed` children — which would
+             size this panel to the header's own height instead of the full
+             viewport. Living as a sibling of <header> keeps it fixed to the
+             real viewport. -->
+        <div id="mobile-nav-panel" class="mobile-nav-panel">
+
+            <!-- Panel header: brand + close -->
+            <div class="mobile-nav-header">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="The Best Estimator" class="mobile-nav-logo">
+                <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
+                    <i class="fas fa-xmark"></i>
+                </button>
+                <svg class="mobile-nav-header-curve" viewBox="0 0 400 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M0,0 Q200,26 400,0 L400,22 L0,22 Z" style="fill: var(--color-bg);"/>
+                </svg>
+            </div>
+
+            <!-- Nav links -->
+            <div class="mobile-nav-body">
+                <a href="{{ url_for('index') }}" class="mobile-nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                <a href="{{ url_for('samples') }}" class="mobile-nav-link {% if request.path == '/samples' %}active{% endif %}">Samples</a>
+                <a href="{{ url_for('services_page') }}" class="mobile-nav-link {% if request.path == '/services' %}active{% endif %}">
+                    <span>Services</span><i class="fas fa-chevron-down"></i>
+                </a>
+                <a href="{{ url_for('pricing') }}" class="mobile-nav-link {% if request.path == '/pricing' %}active{% endif %}">Pricing</a>
+                <a href="{{ url_for('about') }}" class="mobile-nav-link {% if request.path == '/about' %}active{% endif %}">About</a>
 
                 <div class="mobile-theme-row">
                     <span>Theme Mode</span>
@@ -193,10 +221,19 @@
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-
-                <a href="{{ url_for('contact') }}" class="mobile-nav-cta">Request Quote</a>
             </div>
-        </header>
+
+            <!-- Footer CTA panel -->
+            <div class="mobile-nav-footer">
+                <svg class="mobile-nav-footer-curve" viewBox="0 0 400 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M0,26 Q200,0 400,26 L400,0 L0,0 Z" style="fill: var(--color-letteropen);"/>
+                </svg>
+                <div class="mobile-nav-footer-panel">
+                    <h3 class="mobile-nav-footer-heading">Get Your <span>Estimate</span></h3>
+                    <a href="{{ url_for('contact') }}" class="mobile-nav-cta">Request Quote <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
 
         <!-- Main Content Injection -->
         <main class="page-content">{% block content %}{% endblock %}</main>

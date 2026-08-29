@@ -559,57 +559,59 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileNavToggle = document.getElementById(
         "mobile-nav-toggle"
     );
+    const mobileNavClose = document.getElementById(
+        "mobile-nav-close"
+    );
 
     if (mobileNavToggle && mobileNavPanel) {
 
+        function openMobileNav() {
+            mobileNavPanel.classList.add("is-open");
+            document.body.classList.add("mobile-nav-locked");
+
+            mobileNavToggle.setAttribute("aria-expanded", "true");
+            mobileNavToggle.setAttribute("aria-label", "Close menu");
+            mobileNavToggle.innerHTML = '<i class="fas fa-times"></i>';
+        }
+
+        function closeMobileNav(returnFocus) {
+            mobileNavPanel.classList.remove("is-open");
+            document.body.classList.remove("mobile-nav-locked");
+
+            mobileNavToggle.setAttribute("aria-expanded", "false");
+            mobileNavToggle.setAttribute("aria-label", "Open menu");
+            mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+            if (returnFocus) {
+                mobileNavToggle.focus();
+            }
+        }
+
+        // Full-screen menu opens only on explicit button tap
         mobileNavToggle.addEventListener("click", () => {
-            const isOpen =
-                mobileNavPanel.classList.toggle(
-                    "is-open"
-                );
-
-            mobileNavToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-            mobileNavToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close menu"
-                    : "Open menu"
-            );
-
-            mobileNavToggle.innerHTML = isOpen
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
+            const isOpen = mobileNavPanel.classList.contains("is-open");
+            if (isOpen) {
+                closeMobileNav(false);
+            } else {
+                openMobileNav();
+            }
         });
 
+        // Dedicated close (X) button inside the full-screen panel
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener("click", () => {
+                closeMobileNav(false);
+            });
+        }
 
         // Close mobile menu after tapping any link
         mobileNavPanel
             .querySelectorAll("a")
             .forEach((link) => {
                 link.addEventListener("click", () => {
-                    mobileNavPanel.classList.remove(
-                        "is-open"
-                    );
-
-                    mobileNavToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    mobileNavToggle.setAttribute(
-                        "aria-label",
-                        "Open menu"
-                    );
-
-                    mobileNavToggle.innerHTML =
-                        '<i class="fas fa-bars"></i>';
+                    closeMobileNav(false);
                 });
             });
-
 
         // Escape closes mobile menu too
         document.addEventListener(
@@ -617,28 +619,9 @@ document.addEventListener("DOMContentLoaded", () => {
             (event) => {
                 if (
                     event.key === "Escape" &&
-                    mobileNavPanel.classList.contains(
-                        "is-open"
-                    )
+                    mobileNavPanel.classList.contains("is-open")
                 ) {
-                    mobileNavPanel.classList.remove(
-                        "is-open"
-                    );
-
-                    mobileNavToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    mobileNavToggle.setAttribute(
-                        "aria-label",
-                        "Open menu"
-                    );
-
-                    mobileNavToggle.innerHTML =
-                        '<i class="fas fa-bars"></i>';
-
-                    mobileNavToggle.focus();
+                    closeMobileNav(true);
                 }
             }
         );
