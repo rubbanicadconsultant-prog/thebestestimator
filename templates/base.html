@@ -117,13 +117,19 @@
                     <div class="nav-item-dropdown">
                         <a
                             href="{{ url_for('services_page') }}"
-                            class="{% if request.path == '/services' %}active{% endif %}"
-                            >Services</a
+                            class="nlink-services {% if request.path == '/services' %}active{% endif %}"
+                            >Services <span class="csi-badge">6 CSI</span></a
                         >
                         <div class="nav-dropdown-panel">
+                            <!-- Real element, not a ::after pseudo-element — a pseudo-element
+                                 always renders after its element's children in visual order,
+                                 which was pushing this label to the BOTTOM of the list instead
+                                 of acting as a header above it. -->
+                            <div class="nav-dropdown-panel-label">Services / CSI Coverage</div>
+
                             <!-- Estimating Services — hover reveals the 6-trade flyout -->
                             <div class="nav-subitem-dropdown">
-                                <a href="{{ url_for('services_page') }}" class="nav-dropdown-item nav-dropdown-item-parent">
+                                <a href="{{ url_for('services_page') }}" class="nav-dropdown-item nav-dropdown-item-parent" style="--item-accent: #1E4D7B; --item-accent-rgb: 30,77,123;">
                                     <span class="nav-dropdown-icon"><i class="fas fa-ruler-combined"></i></span>
                                     <span class="nav-dropdown-text">
                                         <span class="nav-dropdown-name">Estimating Services</span>
@@ -132,8 +138,9 @@
                                     <span class="nav-subitem-arrow"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 <div class="nav-subdropdown-panel">
+                                    <div class="nav-dropdown-panel-label">CSI Trade Divisions</div>
                                     {% for service in nav_services %}{% if not service.is_hub %}
-                                    <a href="{{ url_for('services_page') }}#svc-{{ service.id }}" class="nav-dropdown-item">
+                                    <a href="{{ url_for('services_page') }}#svc-{{ service.id }}" class="nav-dropdown-item" style="--item-accent: {{ service.accent }}; --item-accent-rgb: {{ service.accent_rgb }};">
                                         <span class="nav-dropdown-icon"><i class="fas {{ service.icon }}"></i></span>
                                         <span class="nav-dropdown-text">
                                             <span class="nav-dropdown-name">{{ service.name }}</span>
@@ -146,7 +153,7 @@
 
                             <!-- BIM Modelling — direct link, own dedicated page, no flyout -->
                             {% for service in nav_services %}{% if service.is_hub %}
-                            <a href="{{ url_for('bim_modelling') }}" class="nav-dropdown-item">
+                            <a href="{{ url_for('bim_modelling') }}" class="nav-dropdown-item" style="--item-accent: {{ service.accent }}; --item-accent-rgb: {{ service.accent_rgb }};">
                                 <span class="nav-dropdown-icon"><i class="fas {{ service.icon }}"></i></span>
                                 <span class="nav-dropdown-text">
                                     <span class="nav-dropdown-name">{{ service.name }}</span>
@@ -173,9 +180,13 @@
                         <i class="fas fa-moon"></i>
                     </button>
 
-                    <a href="{{ url_for('contact') }}" class="nav-cta"
-                        >Request Quote</a
-                    >
+                    <a href="{{ url_for('contact') }}" class="nav-cta-wrap">
+                        <span class="corner c-tl"></span>
+                        <span class="corner c-tr"></span>
+                        <span class="corner c-bl"></span>
+                        <span class="corner c-br"></span>
+                        <span class="nav-cta">Request Quote</span>
+                    </a>
                 </nav>
 
                 <!-- Mobile menu toggle -->

@@ -16,12 +16,45 @@ body.mobile-nav-locked {
     background-color: var(--color-navbar-bg);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--color-navbar-border);
+    border-bottom: none;
     transform: translateY(0);
     transition:
         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
         background-color 0.4s ease,
         box-shadow 0.35s ease;
+}
+
+/* Ruled/graduated edge instead of a plain hairline — short ticks
+   every 12px with a longer tick every 4th mark, like the edge of
+   a scale rule. Quiet on purpose; it's a detail for someone who
+   looks closely, not a loud effect. */
+#site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 5px;
+    pointer-events: none;
+
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            rgba(var(--color-accent-rgb), 0.55) 0px,
+            rgba(var(--color-accent-rgb), 0.55) 1px,
+            transparent 1px,
+            transparent 48px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(var(--color-accent-rgb), 0.28) 0px,
+            rgba(var(--color-accent-rgb), 0.28) 1px,
+            transparent 1px,
+            transparent 12px
+        );
+    background-size: 100% 3px, 100% 2px;
+    background-repeat: repeat-x;
+    background-position: top, bottom;
 }
 
 #site-header.nav-hidden {
@@ -79,36 +112,89 @@ body.mobile-nav-locked {
     position: relative;
 }
 
-.nav-links > a:not(.nav-cta):hover,
+.nlink-services {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* "6 CSI" tag — the one place a numbered badge is used in the
+   nav, and only because it states something literally true (the
+   site organizes services into 6 CSI trade divisions), not as
+   decoration. */
+.csi-badge {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background-color: rgba(var(--color-accent-rgb), 0.09);
+    border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+    border-radius: 4px;
+    padding: 1px 5px;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-item-dropdown:hover .csi-badge,
+.nav-item-dropdown.is-open .csi-badge {
+    color: var(--color-accent-hover);
+    border-color: rgba(var(--color-accent-rgb), 0.4);
+}
+
+.nav-links > a:not(.nav-cta-wrap):hover,
 .nav-item-dropdown > a:hover,
 .nav-item-dropdown.is-open > a {
     color: var(--color-accent);
 }
 
-.nav-links > a.active:not(.nav-cta),
-.nav-item-dropdown > a.active:not(.nav-cta) {
+.nav-links > a.active:not(.nav-cta-wrap),
+.nav-item-dropdown > a.active:not(.nav-cta-wrap) {
     color: var(--color-primary);
     font-weight: 600;
 }
 
-.nav-links > a.active:not(.nav-cta)::after,
-.nav-item-dropdown > a.active:not(.nav-cta)::after {
+/* Dimension-line active indicator — a measured line with a tick
+   at each end, like an architectural dimension annotation, in
+   place of a plain underline. Built as three layered backgrounds
+   (center line + left tick + right tick) rather than box-shadow,
+   since box-shadow offsets can't use percentages and a fixed
+   pixel offset wouldn't work across links of different widths. */
+.nav-links > a.active:not(.nav-cta-wrap)::after,
+.nav-item-dropdown > a.active:not(.nav-cta-wrap)::after {
     content: "";
     position: absolute;
-    bottom: -6px;
     left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-accent);
-    transform-origin: left center;
+    right: 0;
+    bottom: -8px;
+    height: 6px;
+
+    background-image:
+        linear-gradient(var(--color-primary), var(--color-primary)),
+        linear-gradient(var(--color-primary), var(--color-primary)),
+        linear-gradient(var(--color-primary), var(--color-primary));
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 1.5px 100%, 1.5px 100%;
+    background-position: center, left center, right center;
 }
 
 /* ==========================================
    CTA BUTTON
    ========================================== */
 
+/* CTA wrapper: positions the drafting-style corner brackets that
+   expand in on hover, like registration/crop marks on a technical
+   drawing. Padding here is the "runway" the brackets sit in. */
+.nav-cta-wrap {
+    position: relative;
+    display: inline-flex;
+    padding: 7px;
+    text-decoration: none;
+}
+
 .nav-cta {
+    display: inline-block;
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     color: #ffffff !important;
     padding: 0.75rem 1.5rem;
     border-radius: 30px;
@@ -116,13 +202,46 @@ body.mobile-nav-locked {
     font-weight: 600;
     box-shadow: 0 4px 14px rgba(10, 17, 40, 0.15);
     border: 1px solid transparent;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
-.nav-cta:hover {
+.nav-cta-wrap:hover .nav-cta {
     background-color: var(--color-accent);
     box-shadow: 0 4px 20px rgba(var(--color-accent-rgb), 0.3);
     transform: translateY(-2px);
 }
+
+/* Drafting corner-brackets — hidden flush against the button by
+   default, expand outward on hover like a technical-drawing
+   crop/selection mark. A quiet nod to the blueprint/takeoff
+   subject matter instead of a generic hover-lift effect alone. */
+.corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease, top 0.2s ease, bottom 0.2s ease, left 0.2s ease, right 0.2s ease;
+}
+
+.c-tl { top: 7px; left: 7px; border-top-width: 2px; border-left-width: 2px; }
+.c-tr { top: 7px; right: 7px; border-top-width: 2px; border-right-width: 2px; }
+.c-bl { bottom: 7px; left: 7px; border-bottom-width: 2px; border-left-width: 2px; }
+.c-br { bottom: 7px; right: 7px; border-bottom-width: 2px; border-right-width: 2px; }
+
+.nav-cta-wrap:hover .corner {
+    opacity: 1;
+}
+
+.nav-cta-wrap:hover .c-tl { top: 0; left: 0; }
+.nav-cta-wrap:hover .c-tr { top: 0; right: 0; }
+.nav-cta-wrap:hover .c-bl { bottom: 0; left: 0; }
+.nav-cta-wrap:hover .c-br { bottom: 0; right: 0; }
 
 /* ==========================================
    SERVICES DROPDOWN
@@ -152,8 +271,18 @@ body.mobile-nav-locked {
     left: 50%;
 
     width: 370px;
-    max-height: min(520px, calc(100vh - 110px));
-    overflow-y: auto;
+    /* No max-height/overflow-y here on purpose. Browsers force
+       overflow-x to 'auto' the moment overflow-y is anything but
+       'visible' (that pairing can't be worked around by also
+       declaring overflow-x:visible — the used value still gets
+       forced). That was silently clipping the sideways-opening
+       "Estimating Services" flyout below, even though it's
+       position:absolute and should escape this box entirely.
+       With only 2 top-level items today this panel never needs
+       to scroll anyway. If a future item count genuinely needs a
+       scroll limit, put max-height/overflow-y on an INNER wrapper
+       around just the item rows instead of on this panel itself,
+       so this element stays overflow:visible for the flyout. */
 
     transform: translateX(-50%) translateY(8px) scale(0.985);
     transform-origin: top center;
@@ -205,19 +334,28 @@ body.mobile-nav-locked {
 
 /*
  * Small engineering-style header inside dropdown.
+ * A real element (not a pseudo-element) — see the HTML comment
+ * for why this had to change from ::after.
  */
-.nav-dropdown-panel::after {
-    content: "SERVICES  /  CSI COVERAGE";
+.nav-dropdown-panel-label {
     display: block;
 
     margin: 0 0 0.45rem;
     padding: 0.45rem 0.7rem 0.6rem;
 
-    color: var(--color-text-muted);
+    /* Fixed, not var(--color-text-muted): this panel is always a
+       light "paper" card regardless of page theme (see the
+       .nav-dropdown-panel background below), but --color-text-muted
+       flips to a near-white value in dark mode — which was making
+       this unreadable against the panel's permanently-light
+       background. Same reasoning applies to every other fixed
+       color in this dropdown block. */
+    color: #4a4e69;
     font-family: var(--font-mono);
     font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.12em;
+    text-transform: uppercase;
 
     border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
@@ -258,7 +396,7 @@ body.mobile-nav-locked {
 
     text-decoration: none;
 
-    color: var(--color-text-dark);
+    color: #1c2541;
     font-weight: 500;
 
     transition:
@@ -272,53 +410,47 @@ body.mobile-nav-locked {
     background:
         linear-gradient(
             90deg,
-            rgba(var(--color-accent-rgb), 0.09),
-            rgba(var(--color-accent-rgb), 0.035)
+            rgba(var(--item-accent-rgb, var(--color-accent-rgb)), 0.09),
+            rgba(var(--item-accent-rgb, var(--color-accent-rgb)), 0.03)
         );
 
     transform: translateX(3px);
 
     box-shadow:
-        inset 3px 0 0 var(--color-accent);
+        inset 3px 0 0 var(--item-accent, var(--color-accent));
 
     outline: none;
 }
 
 /* ==========================================
    DROPDOWN ICON
+   No background box or border — a clean, colored glyph per
+   category (each trade division / hub item carries its own
+   --item-accent, set inline from services.json). Mirrors the
+   uncluttered icon-plus-label pattern in the reference design
+   rather than the old grey icon-tile treatment.
    ========================================== */
 
 .nav-dropdown-icon {
     flex-shrink: 0;
 
-    width: 38px;
-    height: 38px;
-
-    border-radius: 10px;
-
-    background-color: rgba(var(--color-accent-rgb), 0.09);
-
-    color: var(--color-accent-hover);
+    width: 22px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 0.85rem;
-
-    border: 1px solid rgba(var(--color-accent-rgb), 0.08);
+    color: var(--item-accent, var(--color-accent-hover));
+    font-size: 1.05rem;
 
     transition:
-        background-color 0.2s ease,
         color 0.2s ease,
         transform 0.2s ease;
 }
 
 .nav-dropdown-item:hover .nav-dropdown-icon,
 .nav-dropdown-item:focus-visible .nav-dropdown-icon {
-    background-color: var(--color-accent);
-    color: #ffffff;
-    transform: scale(1.05);
+    transform: scale(1.12);
 }
 
 /* ==========================================
@@ -337,7 +469,7 @@ body.mobile-nav-locked {
     font-size: 0.9rem;
     line-height: 1.2;
     font-weight: 650;
-    color: var(--color-text-dark);
+    color: #1c2541;
 
     white-space: nowrap;
     overflow: hidden;
@@ -348,7 +480,7 @@ body.mobile-nav-locked {
 
 .nav-dropdown-item:hover .nav-dropdown-name,
 .nav-dropdown-item:focus-visible .nav-dropdown-name {
-    color: var(--color-primary);
+    color: var(--item-accent, var(--color-primary));
 }
 
 .nav-dropdown-csi {
@@ -356,7 +488,7 @@ body.mobile-nav-locked {
     font-size: 0.65rem;
     line-height: 1.2;
 
-    color: var(--color-text-muted);
+    color: #4a4e69;
 
     letter-spacing: 0.045em;
     text-transform: uppercase;
@@ -414,9 +546,12 @@ body.mobile-nav-locked {
 
     font-size: 0.65rem;
 
-    color: var(--color-text-muted);
+    color: #4a4e69;
 
-    opacity: 0;
+    /* Always visible (muted) rather than hover-only — a
+       permanent "this leads somewhere" affordance, not a
+       hidden-until-discovered detail. */
+    opacity: 0.35;
 
     transition:
         opacity 0.2s ease,
@@ -428,7 +563,7 @@ body.mobile-nav-locked {
 .nav-dropdown-item:focus-visible::after {
     opacity: 1;
 
-    color: var(--color-accent);
+    color: var(--item-accent, var(--color-accent));
 
     transform:
         translateY(-50%)
@@ -480,7 +615,7 @@ body.mobile-nav-locked {
     flex-shrink: 0;
     margin-left: auto;
 
-    color: var(--color-text-muted);
+    color: #4a4e69;
     font-size: 0.65rem;
 
     transition: color 0.2s ease, transform 0.2s ease;
@@ -488,7 +623,7 @@ body.mobile-nav-locked {
 
 .nav-subitem-dropdown:hover .nav-subitem-arrow,
 .nav-subitem-dropdown.is-open .nav-subitem-arrow {
-    color: var(--color-accent);
+    color: var(--item-accent, var(--color-accent));
     transform: translateX(2px);
 }
 
@@ -686,6 +821,7 @@ body.mobile-nav-locked {
     border-radius: 50%;
     border: none;
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     color: #fff;
     font-size: 0.95rem;
     display: flex;
@@ -807,6 +943,7 @@ body.mobile-nav-locked {
     gap: 0.5rem;
 
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     color: #fff;
 
     font-family: var(--font-sans);

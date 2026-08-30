@@ -63,13 +63,28 @@
 }
 
 /* ==========================================
-   ANIMATED SOFTWARE MARQUEE (MINIMALIST LOOP)
+   ANIMATED SOFTWARE MARQUEE
+   Premium "trust wall" treatment: each tool gets its own
+   typographic identity (not a reproduced logo — just distinct,
+   brand-appropriate font pairing) instead of one uniform style,
+   and stays fully visible at all times rather than dimmed/gated
+   behind hover. Inspired by the always-solid-ink client-logo
+   walls seen on sites like Hugo's.
    ========================================== */
 #software-marquee-section {
-    padding: 3rem 0;
+    padding: 3rem 0 3.5rem 0;
     background-color: var(--color-bg);
     overflow: hidden;
     margin: 0;
+}
+
+.marquee-eyebrow-wrap {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.marquee-eyebrow-wrap .eyebrow {
+    margin-bottom: 0;
 }
 
 .marquee-track {
@@ -78,12 +93,19 @@
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
+/* Pause the loop on hover so a name can actually be read —
+   pure CSS, no JS needed */
+.marquee-track:hover .marquee-content {
+    animation-play-state: paused;
+}
+
 .marquee-content {
     display: flex;
-    gap: 8rem;
+    align-items: center;
+    gap: 6rem;
     white-space: nowrap;
     /* 'linear' ensures a constant speed without acceleration/deceleration fluctuations */
-    animation: scroll-marquee 30s linear infinite;
+    animation: scroll-marquee 34s linear infinite;
 }
 
 @keyframes scroll-marquee {
@@ -92,19 +114,74 @@
 }
 
 .software-logo {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #94a3b8;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    transition: var(--transition-smooth);
+    color: var(--color-text-dark);
+    opacity: 1;
+    cursor: default;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .software-logo:hover {
-    filter: grayscale(0%);
-    opacity: 0.9;
     color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/*
+ * Distinct per-brand wordmark typography.
+ * The list repeats every 6 items (duplicated once for the
+ * seamless loop), so :nth-child(6n+N) targets both copies
+ * of a given tool at once.
+ */
+
+/* PlanSwift — condensed, industrial, all-caps */
+.software-logo:nth-child(6n+1) {
+    font-family: "Barlow Condensed", var(--font-heading);
+    font-weight: 800;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* SQFT — monospace, measurement/data feel */
+.software-logo:nth-child(6n+2) {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.55rem;
+    letter-spacing: 3px;
+}
+
+/* Bluebeam — bold, tight, modern sans */
+.software-logo:nth-child(6n+3) {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1.85rem;
+    letter-spacing: -0.5px;
+}
+
+/* Primavera — elegant italic serif */
+.software-logo:nth-child(6n+4) {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.9rem;
+    letter-spacing: 0.3px;
+}
+
+/* RS Means — serif small-caps, cost-almanac feel */
+.software-logo:nth-child(6n+5) {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Xbeam — condensed italic, dynamic */
+.software-logo:nth-child(6n+6) {
+    font-family: "Barlow Condensed", var(--font-heading);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================
@@ -1047,6 +1124,7 @@ line-height: 1;
 
 .final-cta-top {
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     padding: 3rem 3rem 2.75rem;
 }
 

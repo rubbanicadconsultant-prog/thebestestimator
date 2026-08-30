@@ -131,6 +131,7 @@
     height: 40px;
     border-radius: 50%;
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     color: #ffffff;
     font-size: 1rem;
     text-decoration: none;

@@ -17,6 +17,7 @@
 
 .btn-primary {
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     color: #ffffff;
     box-shadow: 0 8px 24px rgba(10, 17, 40, 0.15);
 }
@@ -36,6 +37,7 @@
 
 .btn-secondary:hover {
     background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none); /* Premium diagonal gradient in dark mode; no-op in light mode since --gradient-primary is unset there */
     color: #ffffff;
     transform: translateY(-3px);
 }
