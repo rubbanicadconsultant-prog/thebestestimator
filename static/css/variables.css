@@ -57,7 +57,7 @@
 
 /* --- Dark Mode Tokens --- */
 [data-theme="dark"] {
-    --color-navbar-bg: #121212;
+    --color-navbar-bg: #050505;
     --color-bg: #050505;            /* Hugo-style Deep Black */
     --color-surface: #0d1528;       /* Deep Midnight Blue for cards */
     --color-text-dark: #f7f9fc;     /* Paper White for headlines */
@@ -95,7 +95,6 @@
       --color-about-eyebrow-leadership:#D4AF37;
       --color-paragraph-cofounder-bio: #ffffff;
 
-    /* Adjusting primary for better dark contrast if necessary */
-    --color-primary: #3E6485;       /* Muted steel blue — brighter for dark background */
-    --gradient-primary: linear-gradient(120deg, #2b6cb0 0%, #1e4d7b 50%, #545b64 100%);
+    /* Adjusting primary for better dark contrast if #3E6485;necessary */
+    --color-primary:#1b528c; /* Muted steel blue — brighter for dark background */
 }

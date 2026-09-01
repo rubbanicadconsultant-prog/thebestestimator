@@ -114,15 +114,28 @@
 }
 
 .software-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
     color: var(--color-text-dark);
     opacity: 1;
     cursor: default;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.software-logo i {
+    font-size: 0.85em;
+    opacity: 0.8;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
 .software-logo:hover {
     color: var(--color-primary);
     transform: translateY(-2px);
+}
+
+.software-logo:hover i {
+    opacity: 1;
 }
 
 /*

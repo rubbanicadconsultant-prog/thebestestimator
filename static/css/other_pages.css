@@ -583,7 +583,21 @@
 .text-silver li {
     color: rgba(255, 255, 255, 0.85);
 }
-
+/* Dark mode only, this card only: the gold card background makes
+   white text feel washed out, so swap to a dark navy for
+   readability — light mode's featured-card background is a
+   different color (charcoal) where white still reads fine, so
+   this is intentionally scoped to dark mode and to .featured-card
+   specifically, not a global text-color change. */
+[data-theme="dark"] .featured-card h2,
+[data-theme="dark"] .featured-card p,
+[data-theme="dark"] .featured-card .card-eyebrow,
+[data-theme="dark"] .featured-card .text-gold,
+[data-theme="dark"] .featured-card .text-white,
+[data-theme="dark"] .featured-card .text-white .price-period,
+[data-theme="dark"] .featured-card .text-silver li {
+    color: #1a2440 !important;
+}
 .pricing-card .btn {
     width: 100%;
     margin-top: auto;
