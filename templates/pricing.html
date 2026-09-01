@@ -26,8 +26,9 @@
                     <div class="dedicated-rate-price">
                         <span class="dedicated-rate-symbol">$</span>
                         <span class="dedicated-rate-num">15</span>
-                        <span class="dedicated-rate-period">/hour</span>
+                        <span class="dedicated-rate-period">/hr</span>
                     </div>
+                    <p class="dedicated-rate-unit">per project hour</p>
                 </div>
                 <div class="dedicated-rate-divider"></div>
                 <div class="dedicated-rate-right">
@@ -52,49 +53,55 @@
     <div class="container pricing-grid">
         <!-- Option 1: On-Demand -->
         <div class="pricing-card-border-wrap">
-        <div class="pricing-card scroll-reveal">
-            <span class="card-eyebrow">BID AS YOU GO</span>
-            <h2>On-Demand Estimates</h2>
-            <p class="card-desc">Perfect for busy subcontractors bidding on selected regional projects throughout the month.</p>
-            <div class="card-price">
-                <span class="price-symbol">$</span><span class="price-num">150</span><span class="price-period">/ avg project starting from</span>
+            <div class="pricing-card scroll-reveal">
+                <span class="card-eyebrow">BID AS YOU GO</span>
+                <h2>On-Demand Estimates</h2>
+                <p class="card-desc">Perfect for busy subcontractors bidding on selected regional projects throughout the month.</p>
+                <div class="card-price">
+                    <span class="price-symbol">$</span><span class="price-num">150</span><span class="price-period">/ avg project starting from</span>
+                </div>
+                <ul class="card-features">
+                    <li>✓ Turnaround within 24 to 48 Hours</li>
+                    <li>✓ CSI Trade-Specific Quantities</li>
+                    <li>✓ Full Color-Coded Markups</li>
+                    <li>✓ Dynamic Excel Material Worksheets</li>
+                    <li>✓ Free Revision Support</li>
+                </ul>
+                <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get Free Estimate Quote</a>
             </div>
-            <ul class="card-features">
-                <li>✓ Turnaround within 24 to 48 Hours</li>
-                <li>✓ CSI Trade-Specific Quantities</li>
-                <li>✓ Full Color-Coded Markups</li>
-                <li>✓ Dynamic Excel Material Worksheets</li>
-                <li>✓ Free Revision Support</li>
-            </ul>
-            <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get Free Estimate Quote</a>
-        </div>
         </div>
 
         <!-- Option 2: Monthly Package (Most Popular) -->
-        <div class="pricing-card-border-wrap featured-border-wrap">
-        <div class="pricing-card featured-card scroll-reveal">
-            <div class="popular-badge">MOST POPULAR</div>
-            <span class="card-eyebrow text-gold">UNLIMITED OUTSOURCING</span>
-            <h2>Monthly Estimating</h2>
-            <p class="card-desc">Designed for active General Contractors aiming to scale operations, bid more, and secure more contracts.</p>
-            <div class="card-price text-white">
-                <span class="price-symbol">$</span><span class="price-num">2,500</span><span class="price-period">/ month</span>
+        <div class="pricing-card-border-wrap">
+            <div class="pricing-card featured-card scroll-reveal">
+                <div class="popular-badge">MOST POPULAR</div>
+                <span class="card-eyebrow text-gold">UNLIMITED OUTSOURCING</span>
+                <h2>Monthly Estimating</h2>
+                <p class="card-desc">Designed for active General Contractors aiming to scale operations, bid more, and secure more contracts.</p>
+                <div class="card-price text-white">
+                    <span class="price-symbol">$</span><span class="price-num">2,500</span><span class="price-period">/ month</span>
+                </div>
+                <ul class="card-features text-silver">
+                    <li>✓ Unlimited Project Blueprints Submissions</li>
+                    <li>✓ Dedicated Project Manager & Estimator</li>
+                    <li>✓ Priority 24-Hour Guaranteed Lead Delivery</li>
+                    <li>✓ Includes All Structural, Architectural & MEP Divisions</li>
+                    <li>✓ 60% More Cost-Effective than Full-Time Staff</li>
+                </ul>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Subscribe to Monthly Package</a>
             </div>
-            <ul class="card-features text-silver">
-                <li>✓ Unlimited Project Blueprints Submissions</li>
-                <li>✓ Dedicated Project Manager & Estimator</li>
-                <li>✓ Priority 24-Hour Guaranteed Lead Delivery</li>
-                <li>✓ Includes All Structural, Architectural & MEP Divisions</li>
-                <li>✓ 60% More Cost-Effective than Full-Time Staff</li>
-            </ul>
-            <a href="{{ url_for('contact') }}" class="btn btn-primary">Subscribe to Monthly Package</a>
         </div>
-    </div>
     </div>
 </section>
 
-<div class="faq-container">
-    <div class="faq-item">
+<div class="faq-section-wrap container">
+    <div class="faq-layout">
+        <div class="faq-col">
+            <span class="faq-eyebrow">Got Questions?</span>
+            <h2 class="faq-h2">Frequently Asked Questions</h2>
+            <div class="faq-index">
+    <div class="faq-item faq-node">
+        <div class="faq-num">01</div>
         <button class="faq-question" aria-expanded="false">
             <span>What happens if your numbers are off and I lose money on a bid?</span>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
@@ -105,7 +112,8 @@
             </div>
         </div>
     </div>
-    <div class="faq-item">
+    <div class="faq-item faq-node">
+        <div class="faq-num">02</div>
         <button class="faq-question" aria-expanded="false">
             <span>Will our blueprints and pricing stay confidential?</span>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
@@ -116,7 +124,8 @@
             </div>
         </div>
     </div>
-    <div class="faq-item">
+    <div class="faq-item faq-node">
+        <div class="faq-num">03</div>
         <button class="faq-question" aria-expanded="false">
             <span>Is this actually cheaper than hiring an in-house estimator?</span>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
@@ -127,7 +136,8 @@
             </div>
         </div>
     </div>
-    <div class="faq-item">
+    <div class="faq-item faq-node">
+        <div class="faq-num">04</div>
         <button class="faq-question" aria-expanded="false">
             <span>My bid is due tomorrow — can you actually turn it around that fast?</span>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
@@ -138,7 +148,8 @@
             </div>
         </div>
     </div>
-    <div class="faq-item">
+    <div class="faq-item faq-node">
+        <div class="faq-num">05</div>
         <button class="faq-question" aria-expanded="false">
             <span>Am I locked into a contract if I subscribe to the monthly package?</span>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
@@ -149,7 +160,8 @@
             </div>
         </div>
     </div>
-    <div class="faq-item">
+    <div class="faq-item faq-node">
+        <div class="faq-num">06</div>
         <button class="faq-question" aria-expanded="false">
             <span>What if I don't like the first estimate, or need changes?</span>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
@@ -157,6 +169,32 @@
         <div class="faq-answer-wrapper">
             <div class="faq-answer">
                 <p>Revisions are free. If your architect issues updated drawings, the scope shifts, or you just need something clarified or adjusted, send it over and we'll revise the takeoff at no additional cost — you're not paying twice because plans changed mid-project.</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+
+            <div class="faq-side">
+                <div class="faq-side-grid"></div>
+                <div class="csi-pattern">
+                    <div class="csi-row">
+                        <div class="csi-dot" style="background:#B5562F;" title="SiteWork & Civil"><i class="fas fa-cubes"></i></div>
+                        <div class="csi-dot" style="background:#8C7B6B;" title="Concrete & Masonry"><i class="fas fa-trowel"></i></div>
+                    </div>
+                    <div class="csi-row">
+                        <div class="csi-dot" style="background:#45608C;" title="Structural & Building Envelope"><i class="fas fa-layer-group"></i></div>
+                        <div class="csi-dot" style="background:#6B4C93;" title="Architectural & Interior Finishes"><i class="fas fa-paint-roller"></i></div>
+                        <div class="csi-dot" style="background:#2A7F7E;" title="MEP & Building Systems"><i class="fas fa-fan"></i></div>
+                    </div>
+                    <div class="csi-row">
+                        <div class="csi-dot" style="background:#B8862E;" title="Equipment & Specialty Construction"><i class="fas fa-warehouse"></i></div>
+                        <div class="csi-dot" style="background:#4A4E8C;" title="BIM Modelling"><i class="fas fa-drafting-compass"></i></div>
+                    </div>
+                </div>
+                <h3>Still have questions?</h3>
+                <p>Talk to a real estimator across any of our 6 trade divisions — no pressure, no sales pitch.</p>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
             </div>
         </div>
     </div>

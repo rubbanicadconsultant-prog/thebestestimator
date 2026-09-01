@@ -457,6 +457,15 @@
     max-width: 1000px;
 }
 
+/* Gradient-ring border — same padding-wrapper technique as the
+   Dedicated Estimator card, applied to both pricing cards so all
+   three premium cards share one visual signature. */
+.pricing-card-border-wrap {
+    padding: 2px;
+    border-radius: calc(var(--border-radius) + 2px);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
 .pricing-card {
     background-color: var(--color-surface);
     border-radius: var(--border-radius);
@@ -466,20 +475,9 @@
     display: flex;
     flex-direction: column;
     transition: var(--transition-smooth);
+    height: 100%;
 }
-.pricing-card-border-wrap {
-    padding: 2px;
-    border-radius: calc(var(--border-radius) + 2px);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-}
-/* The generic navy→accent ring blends into this card specifically,
-   since its own fill IS --color-accent in both themes (charcoal
-   in light, gold in dark). Use a distinct navy→blue pair instead
-   so the ring never matches the card's own fill color. */
-.featured-border-wrap {
-    background: linear-gradient(135deg,
-    #4bc0c8, #FEAC5E, #c779d0);
-}
+
 .pricing-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 25px 50px rgba(10, 17, 40, 0.05);
@@ -487,10 +485,20 @@
 
 /* Featured Card Highlights */
 .featured-card {
-    background-color: var(--color-accent);
+    background-color: #0d1528;
     color: var(--color-primary);
     border-color: var(--color-primary);
     box-shadow: 0 20px 45px rgba(10, 17, 40, 0.15);
+}
+
+/* In dark mode the ring's --color-accent stop becomes gold, which
+   would blend into this card's own gold fill — so this card swaps
+   to the opposite theme's surface color instead (white here,
+   matching what the on-demand card looks like in light mode).
+   That keeps the ring visibly distinct from the card fill in both
+   themes without needing a separate one-off gradient. */
+[data-theme="dark"] .featured-card {
+    background-color: #ffffff;
 }
 
 .featured-card h2,
@@ -525,6 +533,7 @@
 .text-gold {
     color: #ffffff !important;
 }
+
 .pricing-card h2 {
     font-size: 2rem;
     font-weight: 800;
@@ -594,6 +603,7 @@
 .text-silver li {
     color: rgba(255, 255, 255, 0.85);
 }
+
 /* Dark mode only, this card only: the gold card background makes
    white text feel washed out, so swap to a dark navy for
    readability — light mode's featured-card background is a
@@ -609,6 +619,7 @@
 [data-theme="dark"] .featured-card .text-silver li {
     color: #1a2440 !important;
 }
+
 .pricing-card .btn {
     width: 100%;
     margin-top: auto;
@@ -1071,14 +1082,229 @@ body.has-letter-open {
     padding: 5rem 0 3rem; /* Increased bottom padding */
 }
 
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
+/* ==========================================
+   FAQ — spec-sheet index (left) + CSI-division
+   composition (right). The answer drop-down mechanism
+   below (grid-template-rows + gold answer background)
+   is untouched by this — only the surrounding layout
+   and the left/right visual treatment changed.
+   ========================================== */
+
+.faq-section-wrap {
+    padding: 2rem 0 5rem;
+}
+
+.faq-layout {
+    display: flex;
+    gap: 3.5rem;
+    align-items: flex-start;
+}
+
+.faq-col {
+    flex: 1.3;
+    min-width: 0;
+}
+
+.faq-eyebrow {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    display: block;
+    text-transform: uppercase;
+}
+
+.faq-h2 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 2.1rem;
+    color: var(--color-text-dark);
+    margin: 0 0 2.5rem 0;
+}
+
+/* Vertical "spec-sheet" index line running down the list, with
+   each question's number sitting on it like a clause marker on a
+   technical document — distinct from a generic accordion list. */
+.faq-index {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.faq-index::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(226, 232, 240, 0.9) 0,
+        rgba(226, 232, 240, 0.9) 4px,
+        transparent 4px,
+        transparent 9px
+    );
+}
+
+[data-theme="dark"] .faq-index::before {
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.12) 0,
+        rgba(255, 255, 255, 0.12) 4px,
+        transparent 4px,
+        transparent 9px
+    );
+}
+
+.faq-num {
+    position: absolute;
+    left: -3rem;
+    top: 0.9rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    border: 2px solid rgba(226, 232, 240, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    z-index: 2;
+    transition: all 0.25s ease;
+}
+
+[data-theme="dark"] .faq-num {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.faq-item:has(.faq-question[aria-expanded="true"]) .faq-num {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .faq-item:has(.faq-question[aria-expanded="true"]) .faq-num {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #1c1c1c;
+}
+
+/* ===== Right side: CSI-division composition =====
+   Real content, not decoration — each dot is one of the site's
+   actual 6 trade divisions plus BIM, using the exact accent
+   colors already assigned to them in services.json. */
+.faq-side {
+    flex: 1;
+    position: relative;
+    background-color: var(--color-surface);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .faq-side {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.faq-side-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+[data-theme="dark"] .faq-side-grid {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+.csi-pattern {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+}
+
+.csi-row {
+    display: flex;
+    gap: 10px;
+}
+
+.csi-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.csi-dot:hover {
+    transform: scale(1.12);
+}
+
+.faq-side h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin: 0 0 0.6rem 0;
+    position: relative;
+}
+
+.faq-side p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    line-height: 1.6;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-side a {
+    position: relative;
+    display: inline-block;
+    background-color: var(--color-primary);
+    background-image: var(--gradient-primary, none);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-side a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(var(--color-accent-rgb), 0.25);
+    color: #ffffff;
 }
 
 .faq-item {
+    position: relative;
     border-bottom: 1px solid #e2e8f0;
     padding: 0.5rem 0;
+}
+
+[data-theme="dark"] .faq-item {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .faq-question {
@@ -1087,7 +1313,7 @@ body.has-letter-open {
     border: none;
     text-align: left;
     padding: 1rem 0;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 600;
     font-family: var(--font-sans);
     color: var(--color-primary);
@@ -1100,22 +1326,32 @@ body.has-letter-open {
 
 .faq-icon {
     flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--color-bg);
-    color: var(--color-accent);
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
-    transition: var(--transition-smooth);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .faq-question[aria-expanded="true"] .faq-icon {
-    background-color: var(--color-accent);
-    color: #ffffff;
+    color: var(--color-accent);
     transform: rotate(135deg);
+}
+
+/* Responsive: stack the two columns, and the side panel no longer
+   needs to be sticky once it's below the questions instead of
+   beside them. */
+@media (max-width: 860px) {
+    .faq-layout {
+        flex-direction: column;
+    }
+
+    .faq-side {
+        width: 100%;
+    }
 }
 
 /* Smooth expand via grid-template-rows 0fr -> 1fr (animatable, unlike display/height:auto) */
