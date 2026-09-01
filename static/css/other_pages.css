@@ -460,14 +460,26 @@
 .pricing-card {
     background-color: var(--color-surface);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    border: none;
     padding: 4rem 3.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
     transition: var(--transition-smooth);
 }
-
+.pricing-card-border-wrap {
+    padding: 2px;
+    border-radius: calc(var(--border-radius) + 2px);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+/* The generic navy→accent ring blends into this card specifically,
+   since its own fill IS --color-accent in both themes (charcoal
+   in light, gold in dark). Use a distinct navy→blue pair instead
+   so the ring never matches the card's own fill color. */
+.featured-border-wrap {
+    background: linear-gradient(135deg,
+    #4bc0c8, #FEAC5E, #c779d0);
+}
 .pricing-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 25px 50px rgba(10, 17, 40, 0.05);
@@ -513,7 +525,6 @@
 .text-gold {
     color: #ffffff !important;
 }
-
 .pricing-card h2 {
     font-size: 2rem;
     font-weight: 800;

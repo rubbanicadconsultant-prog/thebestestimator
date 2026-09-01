@@ -12,7 +12,7 @@
         </div>
         <div class="hero-content">
             <h1 class="hero-headline">Your Virtual<br><span class="highlight">Estimation Department.</span></h1>
-            <p class="hero-subtitle">Delivering hyper-accurate material takeoffs, shop drawings, and BIM modeling. Scale your bids, slash your engineering overhead by 60%.</p>
+            <p class="hero-subtitle">Delivering hyper-accurate material takeoffs, shop drawings, and BIM scheduling in 24-48 hours. Scale your bids, slash your engineering overhead by 60%.</p>
             <div class="hero-ctas">
                 <a href="{{ url_for('contact') }}" class="btn btn-primary">Request a Free Quote</a>
                 <a href="{{ url_for('samples') }}" class="btn btn-secondary">View Work Samples</a>
@@ -288,61 +288,116 @@
 
         <div class="testimonial-rotator">
             <div class="testimonial-card active">
-                <div class="testimonial-photo-frame">
-                    <img src="{{ url_for('static', filename='images/testimonials/Steph.webp') }}" alt="Kathy B. Ramirez" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
-                    <span class="testimonial-photo-fallback"><i class="fas fa-user"></i></span>
+                <div class="t-card-inner">
+                <div class="t-photo-panel">
+                    <div class="testimonial-photo-frame">
+                        <img src="{{ url_for('static', filename='images/testimonials/Steph.webp') }}" alt="Kathy B. Ramirez" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+                        <span class="testimonial-photo-fallback"><i class="fas fa-user"></i></span>
+                    </div>
                 </div>
-                <p class="quote-text">The level of accuracy and detail we received from The Best Estimator LLC was outstanding. Their PlanSwift markup let us verify every stud. We won our Landscaping bidding by a margin of 1.2%.</p>
-                <div class="quote-author">
-                    <span class="author-name">Stephanie</span>
-                    <span class="author-title">Owner, NaturSpire Indiana</span>
+                <div class="t-content">
+                    <span class="t-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <div class="t-eyebrow">Client Testimonial</div>
+                    <div class="t-stars" aria-hidden="true">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote-text">Their PlanSwift markup let us verify every stud. We won our Landscaping bidding by a margin of 1.2%.</p>
+                    <div class="quote-author">
+                        <span class="author-name">Stephanie</span>
+                        <span class="author-title">Owner, NaturSpire Indiana</span>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-photo-frame">
-                    <img src="{{ url_for('static', filename='images/testimonials/Ijaz.webp') }}" alt="Client testimonial" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
-                    <span class="testimonial-photo-fallback"><i class="fas fa-quote-left"></i></span>
-                </div>
-                <p class="quote-text">It was first time I had trusted someone with estimations although, they have done great job.</p>
-                <div class="quote-author">
-                    <span class="author-name">Ijaz</span>
-                    <span class="author-title">Owner, CmpHouston.</span>
-                </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-photo-frame">
-                    <img src="{{ url_for('static', filename='images/testimonials/mike.webp') }}" alt="Client testimonial" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
-                    <span class="testimonial-photo-fallback"><i class="fas fa-quote-left"></i></span>
+                <div class="t-card-inner">
+                <div class="t-photo-panel">
+                    <div class="testimonial-photo-frame">
+                        <img src="{{ url_for('static', filename='images/testimonials/Ijaz.webp') }}" alt="Client testimonial" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+                        <span class="testimonial-photo-fallback"><i class="fas fa-quote-left"></i></span>
+                    </div>
                 </div>
-                <p class="quote-text">They have done great work for my electrical bid levelling job moreover, their turnaround time and pricing were very reasonable.</p>
-                <div class="quote-author">
-                    <span class="author-name">Bentien</span>
-                    <span class="author-title">Director BD, Rhinotrax Const.</span>
+                <div class="t-content">
+                    <span class="t-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <div class="t-eyebrow">Client Testimonial</div>
+                    <div class="t-stars" aria-hidden="true">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote-text">It was first time I had trusted someone with estimations although, they have done great job.</p>
+                    <div class="quote-author">
+                        <span class="author-name">Ijaz</span>
+                        <span class="author-title">Owner, CmpHouston.</span>
+                    </div>
                 </div>
+            </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="t-card-inner">
+                <div class="t-photo-panel">
+                    <div class="testimonial-photo-frame">
+                        <img src="{{ url_for('static', filename='images/testimonials/mike.webp') }}" alt="Client testimonial" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+                        <span class="testimonial-photo-fallback"><i class="fas fa-quote-left"></i></span>
+                    </div>
+                </div>
+                <div class="t-content">
+                    <span class="t-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <div class="t-eyebrow">Client Testimonial</div>
+                    <div class="t-stars" aria-hidden="true">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote-text">They have done great work for my electrical bid levelling job moreover, their turnaround time and pricing were very reasonable.</p>
+                    <div class="quote-author">
+                        <span class="author-name">Bentien</span>
+                        <span class="author-title">Director BD, Rhinotrax Const.</span>
+                    </div>
+                </div>
+            </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-photo-frame">
-                    <img src="{{ url_for('static', filename='images/testimonials/Joseph Beasley.webp') }}" alt="Raymond Eyi" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
-                    <span class="testimonial-photo-fallback"><i class="fas fa-user"></i></span>
+                <div class="t-card-inner">
+                <div class="t-photo-panel">
+                    <div class="testimonial-photo-frame">
+                        <img src="{{ url_for('static', filename='images/testimonials/Joseph Beasley.webp') }}" alt="Raymond Eyi" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+                        <span class="testimonial-photo-fallback"><i class="fas fa-user"></i></span>
+                    </div>
                 </div>
-                <p class="quote-text">Outsourcing our Excavating takeoffs saved our company over $5,000 monthly in software licensing and estimation payroll. They have been a core partner in our land development projects.</p>
-                <div class="quote-author">
-                    <span class="author-name">Joseph </span>
-                    <span class="author-title">Founder, Beasley Excavating</span>
+                <div class="t-content">
+                    <span class="t-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <div class="t-eyebrow">Client Testimonial</div>
+                    <div class="t-stars" aria-hidden="true">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote-text">Outsourcing our Excavating takeoffs saved our company over $5,000 monthly in software licensing and estimation payroll.</p>
+                    <div class="quote-author">
+                        <span class="author-name">Joseph </span>
+                        <span class="author-title">Founder, Beasley Excavating</span>
+                    </div>
                 </div>
+            </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-photo-frame">
-                    <img src="{{ url_for('static', filename='images/testimonials/Charlie Dunigan.webp') }}" alt="Client testimonial" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
-                    <span class="testimonial-photo-fallback"><i class="fas fa-quote-left"></i></span>
+                <div class="t-card-inner">
+                <div class="t-photo-panel">
+                    <div class="testimonial-photo-frame">
+                        <img src="{{ url_for('static', filename='images/testimonials/Charlie Dunigan.webp') }}" alt="Client testimonial" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+                        <span class="testimonial-photo-fallback"><i class="fas fa-quote-left"></i></span>
+                    </div>
                 </div>
-                <p class="quote-text">Best estimators seem awkward but they are actually good.</p>
-                <div class="quote-author">
-                    <span class="author-name">Charlie </span>
-                    <span class="author-title">President, North-Ply Contracting Co.</span>
+                <div class="t-content">
+                    <span class="t-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <div class="t-eyebrow">Client Testimonial</div>
+                    <div class="t-stars" aria-hidden="true">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote-text">Best estimator seems awkward but they are actually good.</p>
+                    <div class="quote-author">
+                        <span class="author-name">Charlie </span>
+                        <span class="author-title">President, North-Ply Contracting Co.</span>
+                    </div>
                 </div>
+            </div>
             </div>
 
             <div class="testimonial-dots">

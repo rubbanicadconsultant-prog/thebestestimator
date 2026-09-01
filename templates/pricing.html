@@ -51,6 +51,7 @@
 <section id="pricing-models">
     <div class="container pricing-grid">
         <!-- Option 1: On-Demand -->
+        <div class="pricing-card-border-wrap">
         <div class="pricing-card scroll-reveal">
             <span class="card-eyebrow">BID AS YOU GO</span>
             <h2>On-Demand Estimates</h2>
@@ -67,8 +68,10 @@
             </ul>
             <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get Free Estimate Quote</a>
         </div>
+        </div>
 
         <!-- Option 2: Monthly Package (Most Popular) -->
+        <div class="pricing-card-border-wrap featured-border-wrap">
         <div class="pricing-card featured-card scroll-reveal">
             <div class="popular-badge">MOST POPULAR</div>
             <span class="card-eyebrow text-gold">UNLIMITED OUTSOURCING</span>
@@ -86,6 +89,7 @@
             </ul>
             <a href="{{ url_for('contact') }}" class="btn btn-primary">Subscribe to Monthly Package</a>
         </div>
+    </div>
     </div>
 </section>
 
