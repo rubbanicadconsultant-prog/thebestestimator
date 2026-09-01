@@ -155,40 +155,77 @@ def about():
                  'accuracy and reliability clients depend on.'
              ],
          }
-    # Team section (3rd section) — placeholder identities until real names/
-    # titles/bios are provided. Each entry's photo path is pre-set to where
-    # the real file should eventually live; if that file doesn't exist yet,
-    # the template shows a clean "Photo Coming Soon" placeholder instead of
-    # a broken image. The moment a correctly-named file is saved to that
-    # path, it starts rendering automatically — no code changes needed.
+    # Team section (3rd section) — each card now holds TWO people: a
+    # "light" face (shown in light theme) and a "dark" face (shown in
+    # dark theme), flipped between via a pure-CSS 3D card flip driven
+    # by the same [data-theme] attribute the theme toggle already sets.
+    # The 3 "dark" entries are placeholders — Abdullah is adding real
+    # names/titles/bios himself later. Photos work exactly like the
+    # existing team photos: drop a correctly-named file into
+    # static/images/team/ and it starts rendering automatically, no
+    # code changes needed; until then it shows the same graceful
+    # "Photo Coming Soon" placeholder already used elsewhere.
      team_raw = [
         {
-            'name': 'Hizbullah Mashwani',
-            'title': 'Sales Representative',
-            'photo_path': 'images/team/Hizbullah.webp',
-            'bio': 'Hizbullah works with prospective clients to understand their project needs and match them with the right estimating services. He supports the sales process from first contact through follow-up, helping ensure client questions are answered clearly at every stage.'
+            'light': {
+                'name': 'Hizbullah Mashwani',
+                'title': 'Sales Representative',
+                'photo_path': 'images/team/Hizbullah.webp',
+                'bio': 'Hizbullah works with prospective clients to understand their project needs and match them with the right estimating services. He supports the sales process from first contact through follow-up, helping ensure client questions are answered clearly at every stage.'
+            },
+            'dark': {
+                'name': 'Abdullah Fazal',
+                'title': 'IT Specialist',
+                'photo_path': 'images/team/donnie.webp',
+                'bio': "Abdullah manages the company's websites and IT infrastructure, keeping our systems running smoothly behind the scenes so the team can stay focused on delivering accurate, timely estimates to clients."
+            },
         },
         {
-            'name': 'Akash Ahmed',
-            'title': 'Marketing Executive',
-            'photo_path': 'images/team/akash.webp',
-            'bio': "Akash leads marketing for The Best Estimator LLC, connecting contractors and project owners with our estimating services through clear messaging and targeted outreach, so the right clients find us at the right time."
+            'light': {
+                'name': 'Akash Ahmed',
+                'title': 'Marketing Executive',
+                'photo_path': 'images/team/akash.webp',
+                'bio': "Akash leads marketing for The Best Estimator LLC, connecting contractors and project owners with our estimating services through clear messaging and targeted outreach, so the right clients find us at the right time."
+            },
+            'dark': {
+                'name': 'Shahzaib Khan',
+                'title': 'Senior Estimator',
+                'photo_path': 'images/team/shahzaib.webp',
+                'bio': "Experienced Senior Estimator specializing in construction cost estimating, quantity takeoffs, bid preparation, and project cost analysis."
+            },
         },
         {
-            'name': 'Areeba Ali',
-            'title': 'Team Lead',
-            'photo_path': 'images/team/kylie_final.webp',
-            'bio': 'Areeba leads the estimating team day to day, keeping every project moving smoothly from initial scope through to a finished takeoff. She works closely with the team to keep deliverables accurate, consistent, and on schedule for every client.'
+            'light': {
+                'name': 'Areeba Ali',
+                'title': 'Team Lead',
+                'photo_path': 'images/team/kylie_final.webp',
+                'bio': 'Areeba leads the estimating team day to day, keeping every project moving smoothly from initial scope through to a finished takeoff. She works closely with the team to keep deliverables accurate, consistent, and on schedule for every client.'
+            },
+            'dark': {
+                'name': 'Waleed Qureshi',
+                'title': 'Senior Closer',
+                'photo_path': 'images/team/jordan.webp',
+                'bio': "Waleed is often the first voice clients hear from at The Best Estimator LLC. As Senior Closer, he works directly with contractors and project owners to understand their scope and connect them with the right estimating solution, turning an initial inquiry into a clear, confident next step."
+            },
         },
     ]
      team = []
-     for member in team_raw:
-        photo_exists = (BASE_DIR / 'static' / member['photo_path']).exists()
+     for pair in team_raw:
+        light_exists = (BASE_DIR / 'static' / pair['light']['photo_path']).exists()
+        dark_exists = (BASE_DIR / 'static' / pair['dark']['photo_path']).exists()
         team.append({
-            'name': member['name'],
-            'title': member['title'],
-            'bio': member['bio'],
-            'photo': member['photo_path'] if photo_exists else None,
+            'light': {
+                'name': pair['light']['name'],
+                'title': pair['light']['title'],
+                'bio': pair['light']['bio'],
+                'photo': pair['light']['photo_path'] if light_exists else None,
+            },
+            'dark': {
+                'name': pair['dark']['name'],
+                'title': pair['dark']['title'],
+                'bio': pair['dark']['bio'],
+                'photo': pair['dark']['photo_path'] if dark_exists else None,
+            },
         })
      return render_template('about.html', cofounder=cofounder, ceo=ceo, team=team)
 

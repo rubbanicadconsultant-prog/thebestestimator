@@ -48,6 +48,7 @@
     --color-footer-bg: whitesmoke;
      --color-footer-border:whitesmoke;
     --color-footer-text:#4a4e69;   /* Light grey for footer body copy */
+    --color-testimonial-dot: rgba(10, 17, 40, 0.15);
 
     /* Global Spacing & Layout */
     --max-width: 1200px;
@@ -94,6 +95,7 @@
       --color-about-name:#ffffff;
       --color-about-eyebrow-leadership:#D4AF37;
       --color-paragraph-cofounder-bio: #ffffff;
+      --color-testimonial-dot:#e2c876;
 
     /* Adjusting primary for better dark contrast if #3E6485;necessary */
     --color-primary:#1b528c; /* Muted steel blue — brighter for dark background */

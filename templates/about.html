@@ -231,45 +231,61 @@
             {% for member in team %}
 
             <div class="about-team-card">
+                <div class="team-flip-inner">
 
-                <div class="about-team-photo-frame">
+                    <!-- Front face: shown in light theme -->
+                    <div class="team-flip-face team-flip-face-front">
 
-                    {% if member.photo %}
+                        <div class="about-team-photo-frame">
+                            {% if member.light.photo %}
+                            <img
+                                src="{{ url_for('static', filename=member.light.photo) }}"
+                                alt="{{ member.light.name }}, {{ member.light.title }} at The Best Estimator LLC"
+                                class="about-team-photo-img"
+                            >
+                            {% else %}
+                            <div class="about-team-photo-placeholder">
+                                <i class="fas fa-user"></i>
+                                <span>Photo Coming Soon</span>
+                            </div>
+                            {% endif %}
+                        </div>
 
-                    <img
-                        src="{{ url_for('static', filename=member.photo) }}"
-                        alt="{{ member.name }}, {{ member.title }} at The Best Estimator LLC"
-                        class="about-team-photo-img"
-                    >
+                        <div class="about-team-card-body">
+                            <h3 class="about-team-name">{{ member.light.name }}</h3>
+                            <p class="about-team-title-role">{{ member.light.title }}</p>
+                            <p class="about-team-bio">{{ member.light.bio }}</p>
+                        </div>
 
-                    {% else %}
-
-                    <div class="about-team-photo-placeholder">
-                        <i class="fas fa-user"></i>
-                        <span>Photo Coming Soon</span>
                     </div>
 
-                    {% endif %}
+                    <!-- Back face: shown in dark theme -->
+                    <div class="team-flip-face team-flip-face-back">
+
+                        <div class="about-team-photo-frame">
+                            {% if member.dark.photo %}
+                            <img
+                                src="{{ url_for('static', filename=member.dark.photo) }}"
+                                alt="{{ member.dark.name }}, {{ member.dark.title }} at The Best Estimator LLC"
+                                class="about-team-photo-img"
+                            >
+                            {% else %}
+                            <div class="about-team-photo-placeholder">
+                                <i class="fas fa-user"></i>
+                                <span>Photo Coming Soon</span>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="about-team-card-body">
+                            <h3 class="about-team-name">{{ member.dark.name }}</h3>
+                            <p class="about-team-title-role">{{ member.dark.title }}</p>
+                            <p class="about-team-bio">{{ member.dark.bio }}</p>
+                        </div>
+
+                    </div>
 
                 </div>
-
-
-                <div class="about-team-card-body">
-
-                    <h3 class="about-team-name">
-                        {{ member.name }}
-                    </h3>
-
-                    <p class="about-team-title-role">
-                        {{ member.title }}
-                    </p>
-
-                    <p class="about-team-bio">
-                        {{ member.bio }}
-                    </p>
-
-                </div>
-
             </div>
 
             {% endfor %}
